@@ -1,12 +1,14 @@
 //
 //  AppDelegate.swift
-//  stockemc2
+//  StockEMC2
 //
-//  Created by Balagurubaran Kalingarayan on 4/15/18.
+//  Created by Balagurubaran Kalingarayan on 3/17/18.
 //  Copyright © 2018 Balagurubaran Kalingarayan. All rights reserved.
 //
 
 import UIKit
+import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+
+         HandleSubscription.shared.createProductID()
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: {_, _ in })
+        
+        application.registerForRemoteNotifications()
+        UIApplication.shared.applicationIconBadgeNumber = 0
         return true
     }
 

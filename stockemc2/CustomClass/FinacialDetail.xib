@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinancialDataView" customModule="stockemc2" customModuleProvider="target">
+            <connections>
+                <outlet property="EPSBarchartView" destination="yE2-dx-vKk" id="wg8-jh-fOJ"/>
+                <outlet property="VolumeBarchartView" destination="9Og-bX-qXL" id="jE9-WK-mq3"/>
+                <outlet property="barchartView" destination="3eU-PI-5kG" id="O9m-6a-z8d"/>
+                <outlet property="scrollview" destination="kEV-Q5-erh" id="3o4-4c-v4J"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="461" height="716"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kEV-Q5-erh">
+                    <rect key="frame" x="0.0" y="74" width="461" height="642"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Og-bX-qXL" customClass="BarChartView" customModule="Charts">
+                            <rect key="frame" x="12" y="8" width="438" height="286.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yE2-dx-vKk" customClass="BarChartView" customModule="Charts">
+                            <rect key="frame" x="12" y="302.5" width="438" height="286.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eU-PI-5kG" customClass="BarChartView" customModule="Charts">
+                            <rect key="frame" x="12" y="597" width="438" height="286.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="3eU-PI-5kG" firstAttribute="width" secondItem="kEV-Q5-erh" secondAttribute="width" multiplier="0.95" id="1rO-Nm-aRY"/>
+                        <constraint firstItem="yE2-dx-vKk" firstAttribute="height" secondItem="kEV-Q5-erh" secondAttribute="height" multiplier="0.4" id="4V7-19-aFE"/>
+                        <constraint firstItem="yE2-dx-vKk" firstAttribute="top" secondItem="9Og-bX-qXL" secondAttribute="bottom" constant="8" id="E1z-vc-7U7"/>
+                        <constraint firstItem="9Og-bX-qXL" firstAttribute="centerX" secondItem="kEV-Q5-erh" secondAttribute="centerX" id="HF3-86-595"/>
+                        <constraint firstItem="3eU-PI-5kG" firstAttribute="centerX" secondItem="kEV-Q5-erh" secondAttribute="centerX" id="VjB-hj-snA"/>
+                        <constraint firstItem="yE2-dx-vKk" firstAttribute="centerX" secondItem="kEV-Q5-erh" secondAttribute="centerX" id="Y0J-T0-22R"/>
+                        <constraint firstItem="3eU-PI-5kG" firstAttribute="height" secondItem="kEV-Q5-erh" secondAttribute="height" multiplier="0.4" id="d98-Iu-vUu"/>
+                        <constraint firstItem="9Og-bX-qXL" firstAttribute="top" secondItem="kEV-Q5-erh" secondAttribute="top" constant="8" id="fOH-Sz-aQk"/>
+                        <constraint firstItem="yE2-dx-vKk" firstAttribute="width" secondItem="kEV-Q5-erh" secondAttribute="width" multiplier="0.95" id="fXr-ui-F6U"/>
+                        <constraint firstItem="3eU-PI-5kG" firstAttribute="top" secondItem="yE2-dx-vKk" secondAttribute="bottom" constant="8" id="o4v-gy-fI6"/>
+                    </constraints>
+                </scrollView>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI8-gA-wVk">
+                    <rect key="frame" x="8" y="28" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="1fJ-1N-G2B"/>
+                        <constraint firstAttribute="width" constant="40" id="gVC-tp-Alj"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="close.png"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Day trade volume / EPS / Earning &amp; Revenue /                       " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuG-tm-3ao">
+                    <rect key="frame" x="64" y="20" width="389" height="57.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.94848798310000004" green="0.94515211860000004" blue="0.98984727370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XI8-gA-wVk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="1wT-cM-ZSt"/>
+                <constraint firstItem="iuG-tm-3ao" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.08" id="2BN-eA-RrU"/>
+                <constraint firstItem="9Og-bX-qXL" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.95" id="4Nw-cp-eRl"/>
+                <constraint firstItem="kEV-Q5-erh" firstAttribute="top" secondItem="XI8-gA-wVk" secondAttribute="bottom" constant="4" id="Mw8-sw-Qjq"/>
+                <constraint firstItem="iuG-tm-3ao" firstAttribute="leading" secondItem="XI8-gA-wVk" secondAttribute="trailing" constant="16" id="Np4-aQ-pHx"/>
+                <constraint firstItem="iuG-tm-3ao" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="XcK-xB-2ov"/>
+                <constraint firstItem="XI8-gA-wVk" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="Zvg-qW-wsJ"/>
+                <constraint firstItem="kEV-Q5-erh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="g0o-K7-oGF"/>
+                <constraint firstItem="kEV-Q5-erh" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="ib9-dZ-ZpO"/>
+                <constraint firstItem="kEV-Q5-erh" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="ktf-NX-gW9"/>
+                <constraint firstItem="9Og-bX-qXL" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.4" id="sJe-B8-CJ3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iuG-tm-3ao" secondAttribute="trailing" constant="8" id="svm-cR-nlA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-125.5" y="-477"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="close.png" width="529" height="530"/>
+    </resources>
+</document>

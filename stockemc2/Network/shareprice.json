@@ -1,0 +1,46 @@
+ [
+  {
+  "day": {
+  "low": "80.95",
+  "high": "80.07",
+  "price": "7.96"
+  },
+  "week": {
+  "low": "80.7",
+  "high": "84.42",
+  "price": "0"
+  },
+  "year": {
+  "low": "80.55",
+  "high": "80.7",
+  "price": "0"
+  },
+  "stockid": "MSFT",
+  "stockname": "Microsoft Corporation",
+  "companyDescription": "Microsoft Corporation develops, licenses, and supports software products, services, and devices worldwide.",
+  "targetprice": "10",
+  "targetprecentage": 125.628140704
+  },
+  {
+  "day": {
+  "low": "7.95",
+  "high": "8.07",
+  "price": "7.96"
+  },
+  "week": {
+  "low": "80.7",
+  "high": "84.42",
+  "price": "0"
+  },
+  "year": {
+  "low": "6.55",
+  "high": "12.7",
+  "price": "0"
+  },
+  "stockid": "NAP",
+  "stockname": "Navios Maritime Midstream Partners LP",
+  "companyDescription": "Navios Maritime Midstream Partners L.P. owns, operates, and acquires crude oil tankers, refined petroleum product tankers, chemical tankers, and liquefied petroleum gas tankers.",
+  "targetprice": "10",
+  "targetprecentage": 125.628140704
+  }
+  ]

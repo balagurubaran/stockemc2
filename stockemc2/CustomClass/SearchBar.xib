@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchBar" customModule="stockemc2" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SearchBar" customModule="stockemc2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-Ld-K7t">
+                    <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" placeholder=" Stock name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a13-le-U2q">
+                            <rect key="frame" x="0.0" y="0.0" width="305" height="56"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="barTintColor" red="0.32156862749999998" green="0.49533665180000003" blue="0.55712598560000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="webSearch" returnKeyType="search"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="bnP-Di-KFR"/>
+                            </connections>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" red="0.32156862749999998" green="0.49533665180000003" blue="0.55712598560000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="a13-le-U2q" secondAttribute="trailing" id="KVJ-sn-q1r"/>
+                        <constraint firstItem="a13-le-U2q" firstAttribute="top" secondItem="Uac-Ld-K7t" secondAttribute="top" id="bPo-Tz-e1k"/>
+                        <constraint firstAttribute="bottom" secondItem="a13-le-U2q" secondAttribute="bottom" id="jqa-ED-CrP"/>
+                        <constraint firstItem="a13-le-U2q" firstAttribute="leading" secondItem="Uac-Ld-K7t" secondAttribute="leading" id="qx8-Jb-Yaz"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <integer key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.39552861449999999" green="0.49533665180000003" blue="0.55712598560000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Uac-Ld-K7t" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="UPJ-GA-YTA"/>
+                <constraint firstItem="Uac-Ld-K7t" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="gK2-h2-ApS"/>
+                <constraint firstItem="Uac-Ld-K7t" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jne-AI-qC1"/>
+                <constraint firstItem="Uac-Ld-K7t" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="yAG-8o-gjN"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <integer key="value" value="10"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="searchBarObj" destination="a13-le-U2q" id="rcc-4I-ZWv"/>
+            </connections>
+            <point key="canvasLocation" x="-10.5" y="-265"/>
+        </view>
+    </objects>
+</document>
