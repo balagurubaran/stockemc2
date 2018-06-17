@@ -185,6 +185,15 @@
                                                     <action selector="paySubscrption:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UDx-dm-413"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 are watching" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ6-bl-8uB">
+                                                <rect key="frame" x="234" y="54.000000000000014" width="71" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="dVn-GP-4fp"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -203,6 +212,7 @@
                                             <constraint firstItem="tKt-5q-JCS" firstAttribute="leading" secondItem="ePi-Z4-Sqt" secondAttribute="leading" id="G2J-N1-XTl"/>
                                             <constraint firstItem="rRd-nb-4Lg" firstAttribute="top" secondItem="3Db-m1-Qnu" secondAttribute="bottom" constant="30" id="GVX-b0-2xz"/>
                                             <constraint firstAttribute="trailing" secondItem="KWj-Ff-rkD" secondAttribute="trailing" constant="2" id="HlK-8I-V0C"/>
+                                            <constraint firstItem="gJ6-bl-8uB" firstAttribute="top" secondItem="0tg-U1-9nV" secondAttribute="bottom" id="IXj-Wu-Cev"/>
                                             <constraint firstItem="9bG-ZK-AEd" firstAttribute="top" secondItem="tKt-5q-JCS" secondAttribute="bottom" constant="-10" id="Jme-0G-Qth"/>
                                             <constraint firstAttribute="trailing" secondItem="0tg-U1-9nV" secondAttribute="trailing" constant="8" id="Kxd-UM-PIl"/>
                                             <constraint firstItem="eSb-rc-j9H" firstAttribute="height" secondItem="ePi-Z4-Sqt" secondAttribute="height" multiplier="0.12" id="MoX-rD-qCZ"/>
@@ -212,6 +222,7 @@
                                             <constraint firstItem="y7u-td-PZf" firstAttribute="height" secondItem="ePi-Z4-Sqt" secondAttribute="height" multiplier="0.12" id="QvJ-6S-J3i"/>
                                             <constraint firstItem="9bG-ZK-AEd" firstAttribute="width" secondItem="ePi-Z4-Sqt" secondAttribute="width" multiplier="0.42" id="Qxq-E8-ZEB"/>
                                             <constraint firstItem="SW0-Xe-a6p" firstAttribute="top" secondItem="tKt-5q-JCS" secondAttribute="bottom" constant="-10" id="RG1-i7-VHw"/>
+                                            <constraint firstAttribute="trailing" secondItem="gJ6-bl-8uB" secondAttribute="trailing" constant="2" id="RjZ-GI-bVE"/>
                                             <constraint firstItem="mV0-gS-0Et" firstAttribute="width" secondItem="ePi-Z4-Sqt" secondAttribute="width" multiplier="0.6" id="TCJ-kF-ApJ"/>
                                             <constraint firstItem="5sQ-aG-xO8" firstAttribute="top" secondItem="mV0-gS-0Et" secondAttribute="bottom" constant="-5" id="TMD-u3-XOl"/>
                                             <constraint firstItem="AVJ-mT-KuE" firstAttribute="height" secondItem="ePi-Z4-Sqt" secondAttribute="height" multiplier="0.12" id="V7r-6Q-Rsy"/>
@@ -538,6 +549,7 @@
                         <outlet property="subscrptionButton" destination="rRd-nb-4Lg" id="4Vx-T9-N9s"/>
                         <outlet property="targetPrice" destination="9bG-ZK-AEd" id="LwW-yk-EsM"/>
                         <outlet property="volumeTrade" destination="KWj-Ff-rkD" id="gJ5-iX-nfm"/>
+                        <outlet property="watchListCountDisplay" destination="gJ6-bl-8uB" id="Xm6-R5-ebo"/>
                         <outlet property="watchListON_OffBt" destination="0tg-U1-9nV" id="nds-6W-fY7"/>
                         <outlet property="watchListStockAction" destination="ioA-cC-B0m" id="qx9-xL-7kG"/>
                     </connections>

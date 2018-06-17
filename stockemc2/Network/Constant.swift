@@ -38,7 +38,12 @@ enum segementIndex:Int{
     case div_king = 3
 }
 
-var isValidPurchase: Bool = false
+var isValidPurchase: Bool = false{
+    willSet{
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateSubscrptionLabel"), object: nil)
+    }
+}
 
 func isNewHelpIsViewd(){
     if let checkSumuserDefault = userDefaults.object(forKey: "checksum"){

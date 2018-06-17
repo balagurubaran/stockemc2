@@ -140,7 +140,9 @@ class DataHandler{
             
             shareDetail.weekslow_52 = eachShare["weeklow_52"].floatValue
             shareDetail.isTargetReached = eachShare["isTargetReached"].boolValue
-            shareDetail.lastUpdatedDate = eachShare["lastPriceUpdated"].string
+            shareDetail.lastUpdatedDate =  shareDetail.live?.lastUpdatedDate
+            
+            shareDetail.watchListCount =  eachShare["watchlistCount"].intValue
             
             
             shareDetail.comments = eachShare["comments"].stringValue
@@ -195,6 +197,7 @@ class DataHandler{
         history.high = value["high"]?.floatValue
         history.price = value["price"]?.floatValue
         history.open = value["open"]?.floatValue
+        history.lastUpdatedDate = value["lastPriceUpdated"]?.string
         print(history.open!);
         //history.precentage =  ((currentPrice-history.open!) / history.open!) * 100.0
         return history
@@ -455,12 +458,6 @@ class DataHandler{
         return String(describing: volume)
     }
     //30 day data END
-    
-    class func setTheInAppPurchaseStatus(){
-        HandleSubscription.shared.loadReceipt(completion: { (status) in
-            isValidPurchase = status
-        })
-    }
 }
 
 extension Array {

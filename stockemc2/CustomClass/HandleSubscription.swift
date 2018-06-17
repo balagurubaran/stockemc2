@@ -38,8 +38,6 @@ class HandleSubscription:NSObject,SKProductsRequestDelegate,SKPaymentTransaction
             print("failed")
             return
         }
-        
-        
         let payment = SKPayment(product: subscription.product)
         SKPaymentQueue.default().add(payment)
         //SKPaymentQueue.default().restoreCompletedTransactions()

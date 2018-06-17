@@ -18,6 +18,7 @@ class ShareHistory{
     var precentage:Float?
     var price:Float?
     var open:Float?
+    var lastUpdatedDate:String?
     
 }
 
@@ -58,6 +59,7 @@ class share{
     var dividendsDate:String?
     var dividendsPrice:Float?
     var actualPrice:Float?
+    var watchListCount:Int?
     
     var avgExpectedEPS:Float?
     var avgActualEPS:Float?

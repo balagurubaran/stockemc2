@@ -34,6 +34,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
     @IBOutlet weak var subscrptionButton: UIButton!
     @IBOutlet weak var dividerBetween: UILabel!
     @IBOutlet weak var lastUpdatedDate: UILabel!
+    @IBOutlet weak var watchListCountDisplay: UILabel!
     
     //View2 - KeyState
     @IBOutlet weak var marketCap: UILabel!
@@ -69,6 +70,8 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(refreshApplication), name: .UIApplicationWillEnterForeground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateTheWatchListStatus), name: NSNotification.Name(rawValue: "updateTheWatchListStatus"), object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSubscrptionLabel), name: NSNotification.Name(rawValue: "updateSubscrptionLabel"), object: nil)
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -78,9 +81,10 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         targetPrice.isHidden = true
         basePrice.isHidden = true
         dividerBetween.isHidden = true
-        DataHandler.setTheInAppPurchaseStatus()
+        subscrptionButton.isHidden = true
+        //DataHandler.setTheInAppPurchaseStatus()
         
-        Utility.checkFreePeriod()
+        //Utility.checkFreePeriod()
         
         self.utility.showLoadingView(view: self.view)
         
@@ -97,9 +101,6 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         HandleSubscription.shared.loadReceipt(completion: { (status) in
             isValidPurchase = status
             dispatchGroup.leave()
-            if(!isFreeSubcription && !isValidPurchase){
-                Utility.showMessage(message: "Need subscription to see the Target price for the stock")
-            }
         })
         
         dispatchGroup.notify(queue: .main) {
@@ -183,25 +184,32 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         
     }
     
-    func updateTheView1(){
-        subscrptionButton.isHidden = true
-        targetPrice.isHidden = true
-        basePrice.isHidden = true
-        dividerBetween.isHidden = true
-        
-        if(!isValidPurchase || isFreeSubcription){
-            subscrptionButton.isHidden = false
-        }else{
-            targetPrice.isHidden = false
-            basePrice.isHidden = false
-            dividerBetween.isHidden = false
+    @objc func updateSubscrptionLabel(){
+        DispatchQueue.main.async {
+            print("isValidPurchase",isValidPurchase)
+            if(isValidPurchase){
+                self.targetPrice.isHidden = false
+                self.basePrice.isHidden = false
+                self.dividerBetween.isHidden = false
+            }else{
+                if(!isValidPurchase){
+                    Utility.showMessage(message: "Need subscription to see the Target price for the stock")
+                }
+                self.subscrptionButton.isHidden = false
+            }
         }
+    }
+    
+    func updateTheView1(){
+        
         let share = DataHandler.getTheSelectedStockInfoForView1()
         margetPrice.text = "$" + String(describing:share.currentPrice!)
         basePrice.text   = "$" + String(describing:share.actualPrice!)
         targetPrice.text   = "$" + String(describing:share.targetPrice!)
         volumeTrade.text = DataHandler.getTrdeVolmeForDay()
         lastUpdatedDate.text = share.lastUpdatedDate
+        
+        
         if let currentPrice = share.live?.price, let openPrice = share.live?.open!{
             
             let myString = (openPrice-currentPrice >= 0 ? "-" :"") + "$" + String(describing: abs(openPrice - currentPrice)) + " Today"
@@ -220,13 +228,19 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
             expectedDivAmount.text   = "--"
         }
         
-        if( (DataHandler.getTheSelectedIndex() >= 0 && isValidPurchase) || isFreeSubcription ){
+        if( (DataHandler.getTheSelectedIndex() >= 0) ){
             watchListON_OffBt.isHidden = false
             let shareDetail = DataHandler.getIndexDataFromTheMenuStock(index: DataHandler.getTheSelectedIndex())
             if(DataHandler.isShareExitinWatchList(shareName: shareDetail.shareName!)){
                 watchListON_OffBt.setImage(UIImage(named: "favorite.png"), for: .normal)
             }else{
                 watchListON_OffBt.setImage(UIImage(named: "favorite_no.png"), for: .normal)
+            }
+            
+            if(share.watchListCount! > 0){
+                watchListCountDisplay.text = "\(share.watchListCount!) are watching"
+            }else{
+                watchListCountDisplay.text = ""
             }
         }else{
             watchListON_OffBt.isHidden = true
@@ -285,6 +299,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
                 userDefaults.set(watchList, forKey: "watchlist")
                 watchListON_OffBt.setImage(UIImage(named: "favorite.png"), for: .normal)
                 Utility.showMessage(message: "Stock added to watchlist")
+                NetworkHandler.updateTheWatchListCoount(shareName: share.shareName!, isRemove: true)
             }else{
                 if let watchList = userDefaults.array(forKey: "watchlist") as? [Dictionary<String,String>]{
                     userDefaults.set(watchList.filter {!$0.values.contains(share.shareName!) }, forKey: "watchlist")
@@ -300,6 +315,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
                         self.utility.showLoadingView(view: self.view)
                         Utility.logEvent(title: "favourite removed")
                         reloadTableView()
+                    NetworkHandler.updateTheWatchListCoount(shareName: share.shareName!, isRemove: false)
                 }
             }
         }else{
@@ -309,6 +325,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
             userDefaults.set(array, forKey: "watchlist")
             watchListON_OffBt.setImage(UIImage(named: "favorite.png"), for: .normal)
             Utility.showMessage(message: "Stock added to watchlist")
+            NetworkHandler.updateTheWatchListCoount(shareName: share.shareName!, isRemove: true)
         }
     }
     

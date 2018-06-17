@@ -72,6 +72,13 @@ class NetworkHandler{
         }
     }
     
+    class func updateTheWatchListCoount(shareName:String,isRemove:Bool){
+        let url = "https://rgbtohex.in/pennystock/updateWatchList.php?shareName=\(shareName)&isRemove=\(isRemove)"
+        Network.init().getData(url) { (data) in
+                print(String(data: data, encoding: .utf8)!)
+        }
+    }
+    
     class func loadTheRevenueGraph(dispatch:DispatchGroup,shareName:String){
         let service = Service()
         let url = "https://stockrow.com/api/companies/\(shareName)/financials.json?dimension=MRY&section=Income%20Statement"

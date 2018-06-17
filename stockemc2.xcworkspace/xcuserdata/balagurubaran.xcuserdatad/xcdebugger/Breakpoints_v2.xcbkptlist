@@ -58,7 +58,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/Network/WidgetService.swift"
-                  timestampString = "549127092.801862"
+                  timestampString = "550965682.059448"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
@@ -73,7 +73,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/Network/WidgetService.swift"
-                  timestampString = "549127092.805297"
+                  timestampString = "550965682.063905"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "26"
@@ -106,44 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stockemc2/Network/Service.swift"
-            timestampString = "545663003.750602"
+            timestampString = "550965681.241681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
             endingLineNumber = "17"
             landmarkName = "gettheWatchList()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "stockemc2/CustomClass/HandleSubscription.swift"
-            timestampString = "545882255.837852"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "stockemc2/ViewController.swift"
-            timestampString = "546053677.338854"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
-            landmarkName = "watchListON_Off(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -201,44 +169,284 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "stockemc2/Model/NetWorkHandler.swift"
-            timestampString = "549127188.136488"
+            filePath = "stockemc2/CustomClass/HandleSubscription.swift"
+            timestampString = "550959592.923732"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "handlePurchasingState(for:in:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "static stockemc2.NetworkHandler.loadTheShareDataNormal(dispatch: __ObjC.DispatchGroup, shareName: Swift.String) -&gt; ()"
+                  symbolName = "stockemc2.HandleSubscription.handlePurchasingState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Development/stockemc2/stockemc2/Model/NetWorkHandler.swift"
-                  timestampString = "549127227.341969"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.0894639"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "59">
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "71">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.Data) -&gt; () in static stockemc2.NetworkHandler.loadTheShareDataNormal(dispatch: __ObjC.DispatchGroup, shareName: Swift.String) -&gt; ()"
+                  symbolName = "implicit closure #1 : @autoclosure () -&gt; Any in stockemc2.HandleSubscription.handlePurchasingState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Development/stockemc2/stockemc2/Model/NetWorkHandler.swift"
-                  timestampString = "549127227.348579"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.094424"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "26">
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stockemc2/CustomClass/HandleSubscription.swift"
+            timestampString = "550959592.9243129"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "paymentQueue(_:restoreCompletedTransactionsFailedWithError:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "stockemc2.HandleSubscription.paymentQueue(__ObjC.SKPaymentQueue, restoreCompletedTransactionsFailedWithError: Swift.Error) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.105038"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () -&gt; Any in stockemc2.HandleSubscription.paymentQueue(__ObjC.SKPaymentQueue, restoreCompletedTransactionsFailedWithError: Swift.Error) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.108947"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stockemc2/CustomClass/HandleSubscription.swift"
+            timestampString = "550959592.9246939"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "handlePurchasedState(for:in:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "stockemc2.HandleSubscription.handlePurchasedState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.11911"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in stockemc2.HandleSubscription.handlePurchasedState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.122732"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stockemc2/CustomClass/HandleSubscription.swift"
+            timestampString = "550959592.925077"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "handleRestoredState(for:in:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "stockemc2.HandleSubscription.handleRestoredState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.132714"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool) -&gt; () in stockemc2.HandleSubscription.handleRestoredState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.136421"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stockemc2/CustomClass/HandleSubscription.swift"
+            timestampString = "550959592.925451"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "handleFailedState(for:in:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "stockemc2.HandleSubscription.handleFailedState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.151085"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "71">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () -&gt; Any in stockemc2.HandleSubscription.handleFailedState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.1544909"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stockemc2/CustomClass/HandleSubscription.swift"
+            timestampString = "550959592.925826"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "handleDeferredState(for:in:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "stockemc2.HandleSubscription.handleDeferredState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.1634901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "71">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () -&gt; Any in stockemc2.HandleSubscription.handleDeferredState(for: __ObjC.SKPaymentTransaction, in: __ObjC.SKPaymentQueue) -&gt; ()"
+                  moduleName = "stockemc2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
+                  timestampString = "550965682.167504"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "15">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -250,12 +458,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stockemc2/ViewController.swift"
-            timestampString = "550666771.8864141"
+            timestampString = "550965681.242023"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
-            landmarkName = "paySubscrption(_:)"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "updateTheWatchListStatus()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
