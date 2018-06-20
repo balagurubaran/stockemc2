@@ -94,7 +94,7 @@ extension HandleSubscription {
         loadReceipt { (status) in
             isValidPurchase = status
             Utility.showMessage(message: "Your subscription is active")
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshApplication"), object: nil, userInfo: nil)
+           // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshApplication"), object: nil, userInfo: nil)
         }
         queue.finishTransaction(transaction)
         

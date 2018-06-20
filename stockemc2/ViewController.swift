@@ -97,11 +97,6 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         dispatchGroup.enter()
         NetworkHandler.loadTheStockBasicInfo(dispatch: dispatchGroup)
         
-        dispatchGroup.enter()
-        HandleSubscription.shared.loadReceipt(completion: { (status) in
-            isValidPurchase = status
-            dispatchGroup.leave()
-        })
         
         dispatchGroup.notify(queue: .main) {
             //print("Both functions complete 👍")
@@ -119,6 +114,8 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         self.view.addSubview(FinanciadetailVIew!)
         FinanciadetailVIew?.isHidden = true
         FinanciadetailVIew?.dropShadow()
+
+        
     }
     
     func loadDisclamirPage(){
@@ -180,22 +177,29 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
             self.updateTheView2()
             self.closeFinancialDetail()
             self.utility.removeLoading(view: self.view)
+            
+            HandleSubscription.shared.loadReceipt(completion: { (status) in
+                isValidPurchase = status
+            })
         }
         
     }
     
     @objc func updateSubscrptionLabel(){
         DispatchQueue.main.async {
-            print("isValidPurchase",isValidPurchase)
             if(isValidPurchase){
                 self.targetPrice.isHidden = false
                 self.basePrice.isHidden = false
                 self.dividerBetween.isHidden = false
+                self.watchListON_OffBt.isHidden = false
+                self.watchListCountDisplay.isHidden = false
             }else{
                 if(!isValidPurchase){
                     Utility.showMessage(message: "Need subscription to see the Target price for the stock")
                 }
+                self.watchListON_OffBt.isHidden = true
                 self.subscrptionButton.isHidden = false
+                self.watchListCountDisplay.isHidden = true
             }
         }
     }
@@ -238,7 +242,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
             }
             
             if(share.watchListCount! > 0){
-                watchListCountDisplay.text = "\(share.watchListCount!) are watching"
+                watchListCountDisplay.text = "\(share.watchListCount!)"
             }else{
                 watchListCountDisplay.text = ""
             }

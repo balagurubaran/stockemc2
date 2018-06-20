@@ -46,8 +46,7 @@ class FinancialDataView:UIView {
     func loadFinacialData()->UIView {
         scrollview.scrollToTop()
         contentViewSize = 0.0
-        setUPBaseViewProperty(view: barchartView!)
-        
+    
         let barView = BarView.init()
         setUPBaseViewProperty(view: barchartView!)
         barView.loadBarCharRevenue_earning(barChart: barchartView!, revenue_earnigData: financialData)
@@ -65,7 +64,10 @@ class FinancialDataView:UIView {
     
         //barchartView?.dropShadow()
         //EPSBarchartView?.dropShadow()
-        scrollview.contentSize = CGSize.init(width: self.frame.size.width, height: contentViewSize)
+//        if(scrollview.frame.size.height < contentViewSize){
+//            contentViewSize = contentViewSize - scrollview.frame.size.height;
+//        }
+        scrollview.contentSize = CGSize.init(width: self.frame.size.width, height: contentViewSize + 80)
         return self
     }
     
@@ -79,6 +81,7 @@ class FinancialDataView:UIView {
         view.layer.shadowOpacity = 0.5
         view.layer.shadowRadius  = 2
        view.layer.masksToBounds = false
+        
         contentViewSize = contentViewSize + view.frame.size.height + 8.0
         
         //view.dropShadow()
