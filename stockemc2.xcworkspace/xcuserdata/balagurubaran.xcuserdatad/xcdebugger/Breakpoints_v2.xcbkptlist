@@ -58,12 +58,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/Network/WidgetService.swift"
-                  timestampString = "550965682.059448"
+                  timestampString = "551153971.073499"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
                   endingLineNumber = "25"
-                  offsetFromSymbolStart = "298">
+                  offsetFromSymbolStart = "284">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +73,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/Network/WidgetService.swift"
-                  timestampString = "550965682.063905"
+                  timestampString = "551153971.078229"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "26"
                   endingLineNumber = "26"
-                  offsetFromSymbolStart = "26">
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -186,12 +186,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.0894639"
+                  timestampString = "551153971.1024801"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
                   endingLineNumber = "89"
-                  offsetFromSymbolStart = "71">
+                  offsetFromSymbolStart = "88">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -201,12 +201,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.094424"
+                  timestampString = "551153971.105895"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
                   endingLineNumber = "89"
-                  offsetFromSymbolStart = "15">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -234,12 +234,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.105038"
+                  timestampString = "551153971.114684"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
                   endingLineNumber = "85"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "28">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -249,12 +249,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.108947"
+                  timestampString = "551153971.118037"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
                   endingLineNumber = "85"
-                  offsetFromSymbolStart = "4">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -282,12 +282,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.11911"
+                  timestampString = "551153971.127122"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "94"
                   endingLineNumber = "94"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "180">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -297,7 +297,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.122732"
+                  timestampString = "551153971.131183"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "95"
@@ -330,12 +330,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.132714"
+                  timestampString = "551153971.139889"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "105"
                   endingLineNumber = "105"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "180">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -345,12 +345,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.136421"
+                  timestampString = "551153971.143785"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "106"
                   endingLineNumber = "106"
-                  offsetFromSymbolStart = "21">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -378,12 +378,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.151085"
+                  timestampString = "551153971.152994"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
                   endingLineNumber = "118"
-                  offsetFromSymbolStart = "71">
+                  offsetFromSymbolStart = "88">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -393,12 +393,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.1544909"
+                  timestampString = "551153971.157065"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "118"
                   endingLineNumber = "118"
-                  offsetFromSymbolStart = "15">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -426,12 +426,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.1634901"
+                  timestampString = "551153971.165823"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
                   endingLineNumber = "122"
-                  offsetFromSymbolStart = "71">
+                  offsetFromSymbolStart = "88">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -441,12 +441,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "550965682.167504"
+                  timestampString = "551153971.169163"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "122"
                   endingLineNumber = "122"
-                  offsetFromSymbolStart = "15">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -458,13 +458,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stockemc2/ViewController.swift"
-            timestampString = "550965681.242023"
+            timestampString = "551151257.422161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "340"
             endingLineNumber = "340"
-            landmarkName = "updateTheWatchListStatus()"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
