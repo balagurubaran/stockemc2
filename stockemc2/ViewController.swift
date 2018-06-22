@@ -17,8 +17,9 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
     @IBOutlet weak var watchListON_OffBt: UIButton!
     @IBOutlet weak var searchIcon: UIImageView!
     
-     
-    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var topHolderMenu: UIView!
+    
+    @IBOutlet weak var mainView: UIScrollView!
     @IBOutlet weak var mainDataView: UIView!
     @IBOutlet weak var finaceDataView: UIView!
     //@IBOutlet weak var RevenueGraph: UIView!
@@ -54,7 +55,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
     @IBOutlet weak var menLeftConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainViewWidthConstaint: NSLayoutConstraint!
     
-    
+    var contentHeight:CGFloat = 0.0
     var isAnimated = false
     var utility:Utility = Utility()
     
@@ -67,7 +68,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         self.topBarSetup();
         
         NotificationCenter.default.addObserver(self, selector: #selector(refreshApplication), name: NSNotification.Name(rawValue: "refreshApplication"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshApplication), name: .UIApplicationWillEnterForeground, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(refreshApplication), name: .UIApplicationWillEnterForeground, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateTheWatchListStatus), name: NSNotification.Name(rawValue: "updateTheWatchListStatus"), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateSubscrptionLabel), name: NSNotification.Name(rawValue: "updateSubscrptionLabel"), object: nil)
@@ -109,12 +110,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         }
         self.dropShadow()
         
-        FinanciadetailVIew = FinancialDataView.init(frame: CGRect.init(origin: mainView.frame.origin, size: CGSize.init(width: mainView.frame.size.width, height: mainView.frame.size.height)))
-        FinanciadetailVIew?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.addSubview(FinanciadetailVIew!)
-        FinanciadetailVIew?.isHidden = true
-        FinanciadetailVIew?.dropShadow()
-
+        
         
     }
     
@@ -141,9 +137,10 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     
     func dropShadow(){
-        mainView.dropShadow()
-        mainDataView.dropShadow()
-        finaceDataView.dropShadow()
+        //mainView.dropShadow()
+        //mainDataView.dropShadow()
+        //finaceDataView.dropShadow()
+        topHolderMenu.dropShadow()
         menuStockAction.dropShadow()
         watchListStockAction.dropShadow()
         searchIcon.dropShadow()
@@ -154,6 +151,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         let shareName = DataHandler.getIndexDataFromTheMenuStock(index: index)
         menuStockAction.setImage(string: shareName.shareName?.uppercased(), color: UIColor.colorHash(name:shareName.shareName), circular: true, textAttributes: nil,fontSize: 20.0)
         companyName.text = shareName.companyName
+       // companyName.backgroundColor = .white
         
         let dispatchGroup = DispatchGroup()
         
@@ -172,21 +170,41 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         dispatchGroup.enter()
         NetworkHandler.load30DaysData(dispatch: dispatchGroup, shareName: (shareName.shareName?.uppercased())!)
         
+        dispatchGroup.enter()
+        HandleSubscription.shared.loadReceipt(completion: { (status) in
+            isValidPurchase = status
+            dispatchGroup.leave()
+        })
+        
         dispatchGroup.notify(queue: .main) {
+
             self.updateTheView1()
             self.updateTheView2()
-            self.closeFinancialDetail()
-            self.utility.removeLoading(view: self.view)
+            self.loadTheGraph()
             
-            HandleSubscription.shared.loadReceipt(completion: { (status) in
-                isValidPurchase = status
-            })
+            if(self.contentHeight == 0){
+                for view in self.mainView.subviews {
+                    self.contentHeight = view.frame.size.height + self.contentHeight
+                }
+                
+                self.mainView.contentSize = CGSize.init(width: self.mainView.frame.size.width, height: self.contentHeight + 80)
+            }
+              self.utility.removeLoading(view: self.view)
+            
         }
         
     }
     
     @objc func updateSubscrptionLabel(){
         DispatchQueue.main.async {
+            
+            self.targetPrice.isHidden = true
+            self.basePrice.isHidden = true
+            self.dividerBetween.isHidden = true
+            self.watchListON_OffBt.isHidden = true
+            self.watchListCountDisplay.isHidden = true
+            self.subscrptionButton.isHidden = true
+            
             if(isValidPurchase){
                 self.targetPrice.isHidden = false
                 self.basePrice.isHidden = false
@@ -194,9 +212,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
                 self.watchListON_OffBt.isHidden = false
                 self.watchListCountDisplay.isHidden = false
             }else{
-                if(!isValidPurchase){
-                    Utility.showMessage(message: "Need subscription to see the Target price for the stock")
-                }
+               Utility.showMessage(message: "Need subscription to see the Target price for the stock")
                 self.watchListON_OffBt.isHidden = true
                 self.subscrptionButton.isHidden = false
                 self.watchListCountDisplay.isHidden = true
@@ -249,6 +265,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         }else{
             watchListON_OffBt.isHidden = true
         }
+      //  updateSubscrptionLabel()
     }
     
     func updateTheView2(){
@@ -274,24 +291,26 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         ROIC.text    = keyState.roic.count > 0 ? keyState.roic + "%" : "--"
         ROA.text     = keyState.roa.count > 0 ?  keyState.roa + "%" : "--"
         grossProfit.text = keyState.grossprofit.count > 0 ?  Utility.convertIntToDollar(number:Double(keyState.grossprofit)!) : "--"
-        //profitmargin.text = keyState.profitmargin.count > 0 ? keyState.profitmargin + "%" : "--"
     }
     
-    @IBAction func loadTheGraph(_ sender: Any) {
-        let barChatview = FinanciadetailVIew?.loadFinacialData()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(closeFinancialDetail))
-        tap.delegate = self
-        barChatview?.addGestureRecognizer(tap)
+    func loadTheGraph() {
         
-        FinanciadetailVIew?.isHidden = false
-        FinanciadetailVIew?.frame = CGRect.init(x: (FinanciadetailVIew?.frame.origin.x)!, y: (FinanciadetailVIew?.frame.origin.y)!, width: (FinanciadetailVIew?.frame.size.width)!, height: self.view.frame.size.height * 0.9)
-        FinanciadetailVIew!.flip(view: mainView)
+        if(FinanciadetailVIew == nil){
+            FinanciadetailVIew = FinancialDataView.init()
+            mainView.addSubview(FinanciadetailVIew!)
+            
+            FinanciadetailVIew?.translatesAutoresizingMaskIntoConstraints = false
+            FinanciadetailVIew?.topAnchor.constraint(equalTo: finaceDataView.bottomAnchor, constant: 10.0).isActive = true
+            FinanciadetailVIew?.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive = true
+            
+            FinanciadetailVIew?.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 1).isActive = true
+            FinanciadetailVIew?.heightAnchor.constraint(equalTo: mainView.heightAnchor, multiplier: 920.0/mainView.frame.size.height).isActive = true
+            mainView.layoutIfNeeded()
+        }
+       
+        FinanciadetailVIew?.loadFinacialData()
     }
     
-    @objc func closeFinancialDetail(){
-        mainView.flip(view: FinanciadetailVIew!)
-        FinanciadetailVIew?.isHidden = true
-    }
     
     @IBAction func watchListON_Off(_ sender: Any) {
         let share = DataHandler.getIndexDataFromTheMenuStock(index: DataHandler.getTheSelectedIndex())
@@ -397,11 +416,13 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
     }
     
     @objc func refreshApplication(){
+        DispatchQueue.main.async {
         self.utility.showLoadingView(view: self.view)
-        SearchBar.isSearchBarLifeTime = false
-        updateTheSelectedStockAsMenuIcon(index: 0)
-        DataHandler.setSelectedIndex(index:0)
-        reloadTableView()
+            SearchBar.isSearchBarLifeTime = false
+            self.updateTheSelectedStockAsMenuIcon(index: 0)
+            DataHandler.setSelectedIndex(index:0)
+            self.reloadTableView()
+        }
     }
     
     func reloadTableView(){
