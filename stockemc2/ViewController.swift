@@ -73,6 +73,11 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateSubscrptionLabel), name: NSNotification.Name(rawValue: "updateSubscrptionLabel"), object: nil)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(refreshApplication),
+                                               name: .appTimeout,
+                                               object: nil)
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -98,7 +103,12 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         dispatchGroup.enter()
         NetworkHandler.loadTheStockBasicInfo(dispatch: dispatchGroup)
         
-        
+        dispatchGroup.enter()
+        HandleSubscription.shared.loadReceipt(completion: { (status) in
+            isValidPurchase = status
+            dispatchGroup.leave()
+        }) 
+    
         dispatchGroup.notify(queue: .main) {
             //print("Both functions complete 👍")
             self.reloadTableView()
@@ -170,11 +180,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         dispatchGroup.enter()
         NetworkHandler.load30DaysData(dispatch: dispatchGroup, shareName: (shareName.shareName?.uppercased())!)
         
-        dispatchGroup.enter()
-        HandleSubscription.shared.loadReceipt(completion: { (status) in
-            isValidPurchase = status
-            dispatchGroup.leave()
-        })
+        
         
         dispatchGroup.notify(queue: .main) {
 
@@ -277,6 +283,9 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         if(marketcap_value.count > 0 && (Double(marketcap_value)! > Double(keyState.ebitda)!)){
             marketCap.text = marketcap_value.count > 0 ? Utility.convertIntToDollar(number:Double(marketcap_value)!) : "--"
             EBITDA.text  = keyState.ebitda.count > 0 ? Utility.convertIntToDollar(number:Double(keyState.ebitda)!) : "--"
+            
+            textValueColor(textLabel: EBITDA, text: keyState.ebitda)
+
         }else{
             marketCap.text = "--"
             EBITDA.text = "--"
@@ -289,8 +298,21 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         priceToBook.text = keyState.priceToBook.count > 0 ?  keyState.priceToBook : "--"
         //ebitda.text  = keyState.ebitda.count > 0 ? Utility.convertIntToDollar(number:Double(keyState.ebitda)!) : "--"
         ROIC.text    = keyState.roic.count > 0 ? keyState.roic + "%" : "--"
+        
+        textValueColor(textLabel: ROIC, text: keyState.roic)
+        
         ROA.text     = keyState.roa.count > 0 ?  keyState.roa + "%" : "--"
+        
+        textValueColor(textLabel: ROA, text: keyState.roa)
+        
         grossProfit.text = keyState.grossprofit.count > 0 ?  Utility.convertIntToDollar(number:Double(keyState.grossprofit)!) : "--"
+        
+        textValueColor(textLabel: grossProfit, text: keyState.grossprofit)
+    }
+    
+    func textValueColor(textLabel:UILabel,text:String){
+        print(text)
+        textLabel.textColor = Double(text)! >= 0.0 ? .black : .red
     }
     
     func loadTheGraph() {
@@ -354,7 +376,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
     
     @IBAction func paySubscrption(_ sender: Any) {
         if(!isValidPurchase){
-            HandleSubscription.shared.purchase()
+           HandleSubscription.shared.purchase()
         }
     }
     

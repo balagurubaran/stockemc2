@@ -100,11 +100,17 @@ class Utility{
     }
 
     func showLoadingView(view:UIView){
-        loadingView?.show(on: view)
+        DispatchQueue.main.async(execute: {
+            self.loadingView?.show(on: view)
+        })
+        
     }
 
     func removeLoading(view:UIView){
-        RSLoadingView.hide(from: view)
+        DispatchQueue.main.async(execute: {
+            RSLoadingView.hide(from: view)
+        })
+        
     }
     
     class func logEvent(title:String){

@@ -138,7 +138,7 @@ class EPSChartData:NSObject {
         xAxis.labelCount = EPSData.count
         xAxis.centerAxisLabelsEnabled = true
         xAxis.granularity = 1
-        xAxis.valueFormatter = self
+       // xAxis.valueFormatter = self
         xAxis.axisMinimum = 0
         
         let minEstimated = EPSData.min(by: { (a, b) -> Bool in
@@ -191,10 +191,10 @@ class EPSChartData:NSObject {
         
     }
 }
-
-extension EPSChartData: IAxisValueFormatter {
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        return EPSQLabels[min(max(Int(value), 0), EPSQLabels.count - 1)]
-    }
-}
+//
+//extension EPSChartData: IAxisValueFormatter {
+//    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+//        return EPSQLabels[min(max(Int(value), 0), EPSQLabels.count - 1)]
+//    }
+//}
 

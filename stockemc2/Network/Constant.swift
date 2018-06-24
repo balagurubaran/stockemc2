@@ -39,7 +39,7 @@ enum segementIndex:Int{
 }
 
 var isValidPurchase: Bool = false{
-    willSet{
+    didSet{
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateSubscrptionLabel"), object: nil)
     }
@@ -58,7 +58,7 @@ func isNewHelpIsViewd(){
 }
 
 func print(_ item: @autoclosure () -> Any, separator: String = " ", terminator: String = "\n") {
-//    #if DEBUG
-//        Swift.print(item(), separator:separator, terminator: terminator)
-//    #endif
+    #if DEBUG
+        Swift.print(item(), separator:separator, terminator: terminator)
+    #endif
 }

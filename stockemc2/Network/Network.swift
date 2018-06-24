@@ -11,7 +11,7 @@ import Foundation
 class Network{
     
     func getData(_ urlString:String, completion: @escaping (_ Data:Data) -> Void){
-        let url:URL = URL(string:urlString) as! URL
+        let url:URL = URL(string:urlString)!
         let request = URLRequest(url: url, cachePolicy:.reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: 0)// Creating Http Request
         

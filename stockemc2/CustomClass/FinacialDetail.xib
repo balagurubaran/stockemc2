@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FinancialDataView" customModule="stockemc2" customModuleProvider="target">
             <connections>
@@ -27,70 +32,62 @@
                     <rect key="frame" x="8" y="77.5" width="445" height="900"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Og-bX-qXL" customClass="BarChartView" customModule="Charts">
-                            <rect key="frame" x="3" y="0.0" width="438" height="288"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdf-al-N18">
-                                    <rect key="frame" x="0.0" y="286" width="438" height="2"/>
-                                    <color key="backgroundColor" red="0.32156862749999998" green="0.49533665180000003" blue="0.55712598560000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="uhE-4m-A1y"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
+                            <rect key="frame" x="10.5" y="0.0" width="423" height="288"/>
                             <color key="backgroundColor" red="0.95294117649999999" green="0.42352941179999998" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6s-ON-PSd">
+                            <rect key="frame" x="10.5" y="296" width="423" height="2"/>
+                            <color key="backgroundColor" red="0.32156862749999998" green="0.49533665180000003" blue="0.55712598560000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="vdf-al-N18" secondAttribute="trailing" id="6eD-5C-oOn"/>
-                                <constraint firstAttribute="bottom" secondItem="vdf-al-N18" secondAttribute="bottom" id="UAq-sg-o7D"/>
-                                <constraint firstItem="vdf-al-N18" firstAttribute="leading" secondItem="9Og-bX-qXL" secondAttribute="leading" id="a5z-2t-Tia"/>
+                                <constraint firstAttribute="height" constant="2" id="whX-Hr-jrJ"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yE2-dx-vKk" customClass="BarChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="308" width="445" height="288"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NH8-I2-Pkn">
-                                    <rect key="frame" x="0.0" y="286" width="445" height="2"/>
-                                    <color key="backgroundColor" red="0.32156862749999998" green="0.49533665180000003" blue="0.55712598560000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="i16-j6-Yd3"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
+                            <rect key="frame" x="11" y="306" width="423" height="288"/>
                             <color key="backgroundColor" red="0.94901960780000005" green="0.70196078429999997" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="NH8-I2-Pkn" secondAttribute="bottom" id="CyQ-1K-xAU"/>
-                                <constraint firstItem="NH8-I2-Pkn" firstAttribute="leading" secondItem="yE2-dx-vKk" secondAttribute="leading" id="SJC-hn-vai"/>
-                                <constraint firstAttribute="trailing" secondItem="NH8-I2-Pkn" secondAttribute="trailing" id="oAV-m3-yO2"/>
-                            </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eU-PI-5kG" customClass="BarChartView" customModule="Charts">
-                            <rect key="frame" x="0.0" y="616" width="445" height="288"/>
+                            <rect key="frame" x="11" y="612" width="423" height="288"/>
                             <color key="backgroundColor" red="1" green="0.21111348890000001" blue="0.31334908690000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVQ-Xx-XMB">
+                            <rect key="frame" x="11" y="602" width="423" height="2"/>
+                            <color key="backgroundColor" red="0.32156862749999998" green="0.49533665180000003" blue="0.55712598560000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="0lK-95-1aM"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="yE2-dx-vKk" firstAttribute="top" secondItem="9Og-bX-qXL" secondAttribute="bottom" constant="20" id="2bH-St-abe"/>
-                        <constraint firstItem="3eU-PI-5kG" firstAttribute="leading" secondItem="M2A-4x-uKl" secondAttribute="leading" id="7gl-MM-hgQ"/>
-                        <constraint firstItem="yE2-dx-vKk" firstAttribute="height" secondItem="M2A-4x-uKl" secondAttribute="height" multiplier="0.32" id="AD5-fF-CdR"/>
-                        <constraint firstAttribute="trailing" secondItem="yE2-dx-vKk" secondAttribute="trailing" id="BM9-fh-ZPW"/>
-                        <constraint firstItem="3eU-PI-5kG" firstAttribute="top" secondItem="yE2-dx-vKk" secondAttribute="bottom" constant="20" id="Cu6-Vj-vND"/>
-                        <constraint firstItem="3eU-PI-5kG" firstAttribute="height" secondItem="M2A-4x-uKl" secondAttribute="height" multiplier="0.32" id="Hxa-9G-pcF"/>
-                        <constraint firstItem="9Og-bX-qXL" firstAttribute="leading" secondItem="M2A-4x-uKl" secondAttribute="leading" constant="3" id="Tkm-uX-neZ"/>
-                        <constraint firstAttribute="trailing" secondItem="3eU-PI-5kG" secondAttribute="trailing" id="V61-CS-18P"/>
+                        <constraint firstItem="mVQ-Xx-XMB" firstAttribute="width" secondItem="yE2-dx-vKk" secondAttribute="width" id="18b-EA-Xes"/>
+                        <constraint firstItem="yE2-dx-vKk" firstAttribute="top" secondItem="p6s-ON-PSd" secondAttribute="bottom" constant="8" id="CUx-x0-O8S"/>
+                        <constraint firstItem="3eU-PI-5kG" firstAttribute="centerX" secondItem="M2A-4x-uKl" secondAttribute="centerX" id="DoZ-gz-oe9"/>
+                        <constraint firstItem="yE2-dx-vKk" firstAttribute="width" secondItem="9Og-bX-qXL" secondAttribute="width" id="HxI-tJ-utK"/>
+                        <constraint firstItem="3eU-PI-5kG" firstAttribute="width" secondItem="9Og-bX-qXL" secondAttribute="width" id="KCC-Su-8yZ"/>
+                        <constraint firstItem="mVQ-Xx-XMB" firstAttribute="centerX" secondItem="M2A-4x-uKl" secondAttribute="centerX" id="LnK-xs-86O"/>
+                        <constraint firstItem="p6s-ON-PSd" firstAttribute="centerX" secondItem="M2A-4x-uKl" secondAttribute="centerX" id="Qkk-Pk-U6a"/>
+                        <constraint firstItem="yE2-dx-vKk" firstAttribute="height" secondItem="9Og-bX-qXL" secondAttribute="height" id="RPY-Fq-CN9"/>
+                        <constraint firstItem="p6s-ON-PSd" firstAttribute="top" secondItem="9Og-bX-qXL" secondAttribute="bottom" constant="8" id="YDm-oa-oul"/>
+                        <constraint firstItem="yE2-dx-vKk" firstAttribute="centerX" secondItem="M2A-4x-uKl" secondAttribute="centerX" id="Yru-VT-8lP"/>
+                        <constraint firstItem="p6s-ON-PSd" firstAttribute="width" secondItem="9Og-bX-qXL" secondAttribute="width" id="ZCl-dJ-bqb"/>
                         <constraint firstItem="9Og-bX-qXL" firstAttribute="height" secondItem="M2A-4x-uKl" secondAttribute="height" multiplier="0.32" id="cXL-Lr-a8Z"/>
-                        <constraint firstAttribute="trailing" secondItem="9Og-bX-qXL" secondAttribute="trailing" constant="4" id="iMc-Bw-WqJ"/>
-                        <constraint firstItem="yE2-dx-vKk" firstAttribute="leading" secondItem="M2A-4x-uKl" secondAttribute="leading" id="n2O-7R-eB8"/>
+                        <constraint firstItem="3eU-PI-5kG" firstAttribute="top" secondItem="mVQ-Xx-XMB" secondAttribute="bottom" constant="8" id="f51-Cd-uui"/>
+                        <constraint firstItem="9Og-bX-qXL" firstAttribute="width" secondItem="M2A-4x-uKl" secondAttribute="width" multiplier="0.95" id="hnM-3B-8ro"/>
+                        <constraint firstItem="mVQ-Xx-XMB" firstAttribute="top" secondItem="yE2-dx-vKk" secondAttribute="bottom" constant="8" id="i98-Bv-0kn"/>
+                        <constraint firstItem="3eU-PI-5kG" firstAttribute="height" secondItem="9Og-bX-qXL" secondAttribute="height" id="paV-cE-GsV"/>
                         <constraint firstAttribute="height" constant="900" id="rW4-57-78a"/>
+                        <constraint firstItem="9Og-bX-qXL" firstAttribute="centerX" secondItem="M2A-4x-uKl" secondAttribute="centerX" id="xU6-lI-IRR"/>
                         <constraint firstItem="9Og-bX-qXL" firstAttribute="top" secondItem="M2A-4x-uKl" secondAttribute="top" id="zWH-k7-g9n"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Day trade volume / EPS / Earning &amp; Revenue /                       " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuG-tm-3ao">
                     <rect key="frame" x="0.0" y="20" width="453" height="57.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="heightClass=regular-widthClass=regular">
-                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                     </variation>
                 </label>
             </subviews>
