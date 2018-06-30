@@ -388,6 +388,7 @@ class DataHandler{
         }
     }
     
+    
     class func getThewatchlist()->[Dictionary<String,String>]{
         if let watchList = userDefaults.array(forKey: "watchlist") as? [Dictionary<String,String>] {
             return watchList

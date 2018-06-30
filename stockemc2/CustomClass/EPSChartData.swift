@@ -60,10 +60,11 @@ class EPSChartData:NSObject {
         data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
         
         data.setValueFont(.systemFont(ofSize: 8, weight: .medium))
-        data.setValueTextColor(.black)
+        data.setValueTextColor(.white)
         
         chartView.data = data
         chartView.highlightValues(nil)
+
     }
     
     func loadEPSBarCHart(chartView:BarChartView){

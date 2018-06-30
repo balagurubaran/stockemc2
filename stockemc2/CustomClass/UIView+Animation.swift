@@ -53,11 +53,12 @@ extension UIView {
 //        layer?.backgroundColor = bColor
 
         let layer           = self.layer
-        layer.cornerRadius = 5.0
+        layer.cornerRadius = 0.0
         layer.shadowColor   = UIColor.black.cgColor
-        layer.shadowOffset  = CGSize(width: 0, height: 0)
+        layer.shadowOffset  = CGSize(width: 0, height: 1)
         layer.shadowOpacity = 0.5
         layer.shadowRadius  = 2
+        //layer.borderWidth = 1.0
     }
 }
 

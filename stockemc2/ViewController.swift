@@ -8,16 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController,UIGestureRecognizerDelegate {
-    
-    @IBOutlet weak var menuStockAction: UIImageView!
-    @IBOutlet weak var watchListStockAction: UIImageView!
+class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDelegate {
+
+    //@IBOutlet weak var watchListStockAction: UIImageView!
     // @IBOutlet weak var FilterStockAction: UIImageView!
     @IBOutlet weak var stockLogoTableView: UITableView!
     @IBOutlet weak var watchListON_OffBt: UIButton!
-    @IBOutlet weak var searchIcon: UIImageView!
     
-    @IBOutlet weak var topHolderMenu: UIView!
+    @IBOutlet weak var tabBar: UITabBar!
     
     @IBOutlet weak var mainView: UIScrollView!
     @IBOutlet weak var mainDataView: UIView!
@@ -51,9 +49,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
     @IBOutlet weak var grossProfit: UILabel!
     
     //FinancialDataView
-    @IBOutlet weak var menuWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var menLeftConstraint: NSLayoutConstraint!
-    @IBOutlet weak var mainViewWidthConstaint: NSLayoutConstraint!
     
     var contentHeight:CGFloat = 0.0
     var isAnimated = false
@@ -65,19 +61,18 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         super.viewDidLoad()
         
         utility.initloadView()
-        self.topBarSetup();
-        
+    
         NotificationCenter.default.addObserver(self, selector: #selector(refreshApplication), name: NSNotification.Name(rawValue: "refreshApplication"), object: nil)
         //NotificationCenter.default.addObserver(self, selector: #selector(refreshApplication), name: .UIApplicationWillEnterForeground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTheWatchListStatus), name: NSNotification.Name(rawValue: "updateTheWatchListStatus"), object: nil)
-        
+       
         NotificationCenter.default.addObserver(self, selector: #selector(updateSubscrptionLabel), name: NSNotification.Name(rawValue: "updateSubscrptionLabel"), object: nil)
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(refreshApplication),
                                                name: .appTimeout,
                                                object: nil)
-        
+        tabBar.delegate = self
+        tabBar.selectedItem = tabBar.items?[0]
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -88,6 +83,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         basePrice.isHidden = true
         dividerBetween.isHidden = true
         subscrptionButton.isHidden = true
+        
         //DataHandler.setTheInAppPurchaseStatus()
         
         //Utility.checkFreePeriod()
@@ -119,9 +115,6 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
             
         }
         self.dropShadow()
-        
-        
-        
     }
     
     func loadDisclamirPage(){
@@ -138,28 +131,21 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func topBarSetup(){
-        menuStockAction.setImage(string: "ASX".uppercased(), color: UIColor.colorHash(name:"ASX"), circular: true, textAttributes: nil,fontSize: 18.0)
-        
-        watchListStockAction.setImage(string: "Watchlist", color: UIColor.init(red: 101.0/255.0, green:126.0/255.0, blue:142.0/255.0 , alpha: 1), circular: true,textAttributes: nil,fontSize: 13.0)
-        //  FilterStockAction.setImage(string: "Screnner", color: UIColor.init(red: 101.0/255.0, green:126.0/255.0, blue:142.0/255.0 , alpha: 1), circular: true,textAttributes: nil,fontSize: 8.0)
-    }
+  
     
     func dropShadow(){
+        companyName.dropShadow()
+        tabBar.dropShadow()
+        
+        tabBar.layer.shadowRadius = 4
+        companyName.layer.shadowRadius = 4
+        
         //mainView.dropShadow()
-        //mainDataView.dropShadow()
-        //finaceDataView.dropShadow()
-        topHolderMenu.dropShadow()
-        menuStockAction.dropShadow()
-        watchListStockAction.dropShadow()
-        searchIcon.dropShadow()
     }
     
     func updateTheSelectedStockAsMenuIcon(index:Int){
         
         let shareName = DataHandler.getIndexDataFromTheMenuStock(index: index)
-        menuStockAction.setImage(string: shareName.shareName?.uppercased(), color: UIColor.colorHash(name:shareName.shareName), circular: true, textAttributes: nil,fontSize: 20.0)
         companyName.text = shareName.companyName
        // companyName.backgroundColor = .white
         
@@ -227,6 +213,14 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     
     func updateTheView1(){
+        
+        UIView.transition(with: mainView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            DispatchQueue.main.async(execute: {
+               self.mainView.contentOffset = CGPoint(x: 0.0, y: 0.0)
+            })
+        }, completion: nil)
+        
+        
         
         let share = DataHandler.getTheSelectedStockInfoForView1()
         margetPrice.text = "$" + String(describing:share.currentPrice!)
@@ -322,7 +316,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
             mainView.addSubview(FinanciadetailVIew!)
             
             FinanciadetailVIew?.translatesAutoresizingMaskIntoConstraints = false
-            FinanciadetailVIew?.topAnchor.constraint(equalTo: finaceDataView.bottomAnchor, constant: 10.0).isActive = true
+            FinanciadetailVIew?.topAnchor.constraint(equalTo: finaceDataView.bottomAnchor, constant: 0.0).isActive = true
             FinanciadetailVIew?.centerXAnchor.constraint(equalTo: mainView.centerXAnchor).isActive = true
             
             FinanciadetailVIew?.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 1).isActive = true
@@ -353,7 +347,6 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
                     let watchList = DataHandler.getThewatchlist()
                     if watchList.count == 0 {
                         isWatchList = false;
-                        watchListStockAction.setImage(string: "Watchlist", color: UIColor.init(red: 101.0/255.0, green:126.0/255.0, blue:142.0/255.0 , alpha: 1), circular: true,textAttributes: nil,fontSize: 13.0)
                     }
                         updateTheSelectedStockAsMenuIcon(index: 0);
                         DataHandler.setSelectedIndex(index: 0)
@@ -380,11 +373,41 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate {
         }
     }
     
-    @objc func updateTheWatchListStatus(){
-        DispatchQueue.main.async {
-            self.watchListStockAction.setImage(string: "Watchlist", color: UIColor.init(red: 101.0/255.0, green:126.0/255.0, blue:142.0/255.0 , alpha: 1), circular: true,textAttributes: nil,fontSize: 13.0) 
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        //This method will be called when user changes tab.
+        SearchBar.isSearchBarLifeTime = false
+        switch item.title {
+            
+        case "Main":
+            isWatchList = false
+            refreshApplication()
+        case "Watchlist":
+            
+            loadTheWatchList()
+        case "search":
+            if(!SearchBar.isVisible){
+                SearchBar.isSearchBarLifeTime = true
+                SearchBar.showSearchBar()
+            }
+        default:
+            print("default")
         }
-       
+    }
+    
+    func loadTheWatchList(){
+        Utility.logEvent(title: "Watchlist")
+        isWatchList = true
+        let watchList = DataHandler.getThewatchlist()
+        if watchList.count == 0{
+            isWatchList = false
+            Utility.showMessage(message: "Watchlist is empty")
+        }
+        fadeOut()
+        reloadTableView()
+        
+        updateTheSelectedStockAsMenuIcon(index: 0)
+        DataHandler.setSelectedIndex(index:0)
+        self.utility.showLoadingView(view: self.view)
     }
 }
 
@@ -394,7 +417,6 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
         fadeOut()
         if(SearchBar.isSearchBarLifeTime && searchString != ""){
             DataHandler.setSearchString(searchValue: searchString)
-            watchListStockAction.setImage(string: "All", color: UIColor.init(red: 101.0/255.0, green:126.0/255.0, blue:142.0/255.0 , alpha: 1), circular: true,textAttributes: nil,fontSize: 18.0)
             updateTheSelectedStockAsMenuIcon(index: 0)
             DataHandler.setSelectedIndex(index:0)
             reloadTableView()
@@ -408,8 +430,12 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
     }
     
     func searchBarClosed() {
+        if(isWatchList){
+            tabBar.selectedItem = tabBar.items?[1]
+        }else{
+            tabBar.selectedItem = tabBar.items?[0]
+        }
         removeFadeOut()
-        watchListStockAction.setImage(string: "Watchlist", color: UIColor.init(red: 101.0/255.0, green:126.0/255.0, blue:142.0/255.0 , alpha: 1), circular: true,textAttributes: nil,fontSize: 13.0)
         SearchBar.isSearchBarLifeTime = false
         reloadTableView()
     }
@@ -485,7 +511,6 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
                 }
                 SearchBar.isSearchBarLifeTime = false
                 reloadTableView()
-                watchListStockAction.setImage(string: "Watchlist", color: UIColor.init(red: 101.0/255.0, green:126.0/255.0, blue:142.0/255.0 , alpha: 1), circular: true,textAttributes: nil,fontSize: 13.0)
                 
             }else {
                 Utility.logEvent(title: "Watchlist")
@@ -497,13 +522,6 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
                 }
                 fadeOut()
                 reloadTableView()
-                var watchListText = "Watchlist"
-                var fontSize = 13.0
-                if(isWatchList){
-                    watchListText = "All"
-                    fontSize = 18.0
-                }
-                watchListStockAction.setImage(string: watchListText, color: UIColor.init(red: 101.0/255.0, green:126.0/255.0, blue:142.0/255.0 , alpha: 1), circular: true,textAttributes: nil,fontSize: Float(fontSize))
             }
             updateTheSelectedStockAsMenuIcon(index: 0)
             DataHandler.setSelectedIndex(index:0)
