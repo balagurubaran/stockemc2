@@ -56,8 +56,7 @@ class Service{
     }
     
     func getshareBasicDetail(completion:@escaping (_ Data:Data) -> Void){
-        let issub = isValidPurchase ? "true":"false"
-        Network.init().getData( baseURL + "/getStockDetail.php?allStockEntryAlone=t&issub=" + issub) { (data) in
+        Network.init().getData( baseURL + "/getStockDetail.php?allStockEntryAlone=true&issub=false&isDividend=\(isDividend)&count=100") { (data) in
             completion(data)
         }
     }

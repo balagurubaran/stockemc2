@@ -38,6 +38,7 @@ enum segementIndex:Int{
     case div_king = 3
 }
 
+var isDividend = false
 var isValidPurchase: Bool = false{
     didSet{
         
@@ -58,7 +59,7 @@ func isNewHelpIsViewd(){
 }
 
 func print(_ item: @autoclosure () -> Any, separator: String = " ", terminator: String = "\n") {
-    #if DEBUG
-        Swift.print(item(), separator:separator, terminator: terminator)
-    #endif
+//    #if DEBUG
+//        Swift.print(item(), separator:separator, terminator: terminator)
+//    #endif
 }

@@ -24,6 +24,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
     //@IBOutlet weak var EPSGraph: UIView!
     @IBOutlet weak var companyName: UILabel!
     
+    @IBOutlet weak var companyShortName_header: UIImageView!
     //View 1
     @IBOutlet weak var margetPrice: UILabel!
     @IBOutlet weak var priceChangeToday: UILabel!
@@ -94,7 +95,6 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
             loadDisclamirPage()
             return
         }
-        
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         NetworkHandler.loadTheStockBasicInfo(dispatch: dispatchGroup)
@@ -147,6 +147,9 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
         
         let shareName = DataHandler.getIndexDataFromTheMenuStock(index: index)
         companyName.text = shareName.companyName
+        companyShortName_header.setImage(string: shareName.shareName?.uppercased(), color: UIColor.colorHash(name:shareName.shareName!), circular: true, textAttributes: nil,fontSize: 12.0)
+
+        
        // companyName.backgroundColor = .white
         
         let dispatchGroup = DispatchGroup()
@@ -228,6 +231,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
         targetPrice.text   = "$" + String(describing:share.targetPrice!)
         volumeTrade.text = DataHandler.getTrdeVolmeForDay()
         lastUpdatedDate.text = share.lastUpdatedDate
+        
         
         
         if let currentPrice = share.live?.price, let openPrice = share.live?.open!{
@@ -357,7 +361,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
                 }
             }
         }else{
-            Utility.logEvent(title: "favourite")
+            Utility.logEvent(title: "firebase_event_ddd_watchlist")
             let  shareDetail : Dictionary = ["shareName": share.shareName!,"companyName":share.companyName!]
             let array = [shareDetail]
             userDefaults.set(array, forKey: "watchlist")
@@ -376,26 +380,33 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         //This method will be called when user changes tab.
         SearchBar.isSearchBarLifeTime = false
+        isDividend = false
         switch item.title {
             
-        case "Main":
+        case "Main","Dividend":
+            if(item.title == "Dividend"){
+                isDividend = true
+            }
             isWatchList = false
             refreshApplication()
+            Utility.logEvent(title: "firebase_event_all")
         case "Watchlist":
-            
+            Utility.logEvent(title: "firebase_event_watchlist")
             loadTheWatchList()
         case "search":
+            Utility.logEvent(title: "firebase_event_search")
             if(!SearchBar.isVisible){
                 SearchBar.isSearchBarLifeTime = true
                 SearchBar.showSearchBar()
             }
+        
         default:
             print("default")
         }
     }
     
     func loadTheWatchList(){
-        Utility.logEvent(title: "Watchlist")
+        
         isWatchList = true
         let watchList = DataHandler.getThewatchlist()
         if watchList.count == 0{
@@ -466,10 +477,19 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
     @objc func refreshApplication(){
         DispatchQueue.main.async {
         self.utility.showLoadingView(view: self.view)
-            SearchBar.isSearchBarLifeTime = false
-            self.updateTheSelectedStockAsMenuIcon(index: 0)
-            DataHandler.setSelectedIndex(index:0)
-            self.reloadTableView()
+                
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
+            NetworkHandler.loadTheStockBasicInfo(dispatch: dispatchGroup)
+        
+            dispatchGroup.notify(queue: .main) {
+                SearchBar.isSearchBarLifeTime = false
+                if(DataHandler.getTheMainMenuStocksCount() > 0){
+                    self.reloadTableView()
+                    self.updateTheSelectedStockAsMenuIcon(index:0);
+                    DataHandler.setSelectedIndex(index: 0)
+                }
+            }
         }
     }
     
@@ -513,7 +533,7 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
                 reloadTableView()
                 
             }else {
-                Utility.logEvent(title: "Watchlist")
+    
                 isWatchList = !isWatchList
                 let watchList = DataHandler.getThewatchlist()
                 if watchList.count == 0{

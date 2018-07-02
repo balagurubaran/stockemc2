@@ -58,7 +58,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/Network/WidgetService.swift"
-                  timestampString = "552084767.271361"
+                  timestampString = "552166588.875476"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
@@ -73,7 +73,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/Network/WidgetService.swift"
-                  timestampString = "552084767.274822"
+                  timestampString = "552166588.87888"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "26"
@@ -170,7 +170,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "552084767.291057"
+                  timestampString = "552166588.895642"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
@@ -185,7 +185,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "552084767.2946219"
+                  timestampString = "552166588.900425"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "89"
@@ -218,7 +218,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "552084767.303557"
+                  timestampString = "552166588.910493"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -233,7 +233,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "552084767.306985"
+                  timestampString = "552166588.9138139"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -314,7 +314,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "552084767.338195"
+                  timestampString = "552166588.943422"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -329,7 +329,7 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/CustomClass/HandleSubscription.swift"
-                  timestampString = "552084767.34137"
+                  timestampString = "552166588.946625"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -346,12 +346,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stockemc2/TimeOut.swift"
-            timestampString = "552084766.682155"
+            timestampString = "552085274.22717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "timeHasExceeded()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stockemc2/Model/DataHandler.swift"
+            timestampString = "552164657.6851979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "parseTheStockBasicDetail(data:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "stockemc2/Network/Network.swift"
+            timestampString = "552164890.421127"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "getData(_:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

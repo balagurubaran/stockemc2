@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "80EB62FDB8E2D1F4F1505EAD7BF3590B"
+               BlueprintIdentifier = "EA350AEC458FC15851D0EB038938872C"
                BuildableName = "RSLoadingView.bundle"
                BlueprintName = "RSLoadingView-RSLoadingView"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "80EB62FDB8E2D1F4F1505EAD7BF3590B"
+            BlueprintIdentifier = "EA350AEC458FC15851D0EB038938872C"
             BuildableName = "RSLoadingView.bundle"
             BlueprintName = "RSLoadingView-RSLoadingView"
             ReferencedContainer = "container:Pods.xcodeproj">
