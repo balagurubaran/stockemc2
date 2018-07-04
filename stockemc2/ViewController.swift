@@ -57,6 +57,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
     var utility:Utility = Utility()
     
     var FinanciadetailVIew:FinancialDataView?
+     var isProfitList = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -381,14 +382,24 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
         //This method will be called when user changes tab.
         SearchBar.isSearchBarLifeTime = false
         isDividend = false
+       
+        var loadProfitLostService = false
         switch item.title {
             
-        case "Main","Dividend":
+        case "Main","Dividend","Profit","Loss":
             if(item.title == "Dividend"){
                 isDividend = true
             }
+            if(item.title == "Profit"){
+                isProfitList = true
+                loadProfitLostService = true
+            }
+            if(item.title == "Loss"){
+                isProfitList = false
+                loadProfitLostService = true
+            }
             isWatchList = false
-            refreshApplication()
+            refreshApplication(isProfitlLossService: loadProfitLostService)
             Utility.logEvent(title: "firebase_event_all")
         case "Watchlist":
             Utility.logEvent(title: "firebase_event_watchlist")
@@ -474,13 +485,18 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
        // }
     }
     
-    @objc func refreshApplication(){
+    @objc func refreshApplication(isProfitlLossService:Bool = false){
         DispatchQueue.main.async {
         self.utility.showLoadingView(view: self.view)
                 
             let dispatchGroup = DispatchGroup()
             dispatchGroup.enter()
-            NetworkHandler.loadTheStockBasicInfo(dispatch: dispatchGroup)
+            if(isProfitlLossService){
+                NetworkHandler.loadTheStockBasicInfo_profit_loss(isProfitList: self.isProfitList, dispatch: dispatchGroup)
+            }else{
+                NetworkHandler.loadTheStockBasicInfo(dispatch: dispatchGroup)
+            }
+            
         
             dispatchGroup.notify(queue: .main) {
                 SearchBar.isSearchBarLifeTime = false

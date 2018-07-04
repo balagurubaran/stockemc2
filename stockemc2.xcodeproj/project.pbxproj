@@ -21,6 +21,7 @@
 		14248AC22086066A00DA67C6 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14248ABA208602C200DA67C6 /* WidgetModel.swift */; };
 		14248AC52086BDCD00DA67C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14248AC42086BDCD00DA67C6 /* GoogleService-Info.plist */; };
 		14248AC62086BDCD00DA67C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14248AC42086BDCD00DA67C6 /* GoogleService-Info.plist */; };
+		142CEF1220ED66D4004F3058 /* icon_loading mage.png in Resources */ = {isa = PBXBuildFile; fileRef = 142CEF1120ED66D3004F3058 /* icon_loading mage.png */; };
 		148A6E18208EA32E004F29C5 /* DisclaimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148A6E17208EA32B004F29C5 /* DisclaimerViewController.swift */; };
 		14A224BF2083B1E300B2658F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A224BE2083B1E300B2658F /* AppDelegate.swift */; };
 		14A224C12083B1E300B2658F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A224C02083B1E300B2658F /* ViewController.swift */; };
@@ -124,6 +125,7 @@
 		14248ABF208603BF00DA67C6 /* Watchlistcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watchlistcell.swift; sourceTree = "<group>"; };
 		14248AC32086148300DA67C6 /* stockemc2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = stockemc2.entitlements; sourceTree = "<group>"; };
 		14248AC42086BDCD00DA67C6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		142CEF1120ED66D3004F3058 /* icon_loading mage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_loading mage.png"; sourceTree = "<group>"; };
 		148A6E17208EA32B004F29C5 /* DisclaimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisclaimerViewController.swift; sourceTree = "<group>"; };
 		14A224BB2083B1E300B2658F /* stockemc2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stockemc2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A224BE2083B1E300B2658F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 		14A224D02083BCA100B2658F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				142CEF1120ED66D3004F3058 /* icon_loading mage.png */,
 				14D288CE208C16D900BAE348 /* watchicon.png */,
 				14D288CB208ACA7C00BAE348 /* newStock.png */,
 				14A224D12083BCA100B2658F /* close.png */,
@@ -507,6 +510,7 @@
 			files = (
 				14F7741E20DEA4F800F2563E /* OFL.txt in Resources */,
 				14F7741B20DEA4F800F2563E /* Lato-SemiboldItalic.ttf in Resources */,
+				142CEF1220ED66D4004F3058 /* icon_loading mage.png in Resources */,
 				14F7740F20DEA4F800F2563E /* Lato-BoldItalic.ttf in Resources */,
 				14A224C92083B1E300B2658F /* LaunchScreen.storyboard in Resources */,
 				14A2250F2083BCA200B2658F /* FinacialDetail.xib in Resources */,

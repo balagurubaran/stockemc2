@@ -566,19 +566,17 @@
                                 </constraints>
                                 <items>
                                     <tabBarItem title="Main" image="all" id="TFq-aZ-o0g">
-                                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
                                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="1"/>
                                     </tabBarItem>
                                     <tabBarItem title="Watchlist" image="fav" id="KxY-j3-C7u">
-                                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="3"/>
                                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                                     </tabBarItem>
                                     <tabBarItem title="Dividend" image="Dividend" id="ftq-nb-ajp">
-                                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                                     </tabBarItem>
+                                    <tabBarItem title="Profit" image="profit" id="Pyv-Ro-5YI"/>
+                                    <tabBarItem title="Loss" image="loss" id="nel-bo-1HP"/>
                                     <tabBarItem title="search" image="search" id="5hP-2U-iee">
-                                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
                                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                                     </tabBarItem>
                                 </items>
@@ -689,7 +687,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kb-pH-ZIk">
                                 <rect key="frame" x="0.0" y="95" width="414" height="575"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">App  provides financial data and technical analysis on stocks. We shall not be held liable to and shall not accept any liability, obligation or responsibility whatsoever for any loss or damage for your finances or personal information.
+                                <string key="text">App  provides financial data and technical analysis on stocks. We shall not be held liable to and shall not accept any liability, obligation or responsibility whatsoever for any loss or damage for your finances or personal information.
 
 All users should consult with their financial advisor before buying or selling any shares. Users should not firmly base their final investment decision upon Application. By accessing our Application you agree and are held liable for your own investment decisions.
 
@@ -701,7 +699,7 @@ The owners of this Application are not liable for any errors, omissions or misst
 
 There is no guarantee against any loss.             
 
-Thank you iextrading.com for the historical data</mutableString>
+Thank you iextrading.com for the historical data</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -772,10 +770,12 @@ Thank you iextrading.com for the historical data</mutableString>
         </scene>
     </scenes>
     <resources>
-        <image name="Dividend" width="40" height="40"/>
+        <image name="Dividend" width="30" height="30"/>
         <image name="all" width="30" height="30"/>
-        <image name="fav" width="40" height="40"/>
+        <image name="fav" width="30" height="30"/>
         <image name="favorite_no.png" width="529" height="530"/>
-        <image name="search" width="40" height="40"/>
+        <image name="loss" width="30" height="30"/>
+        <image name="profit" width="30" height="30"/>
+        <image name="search" width="30" height="30"/>
     </resources>
 </document>

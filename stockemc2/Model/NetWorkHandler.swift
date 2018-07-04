@@ -16,7 +16,14 @@ class NetworkHandler{
             DataHandler.parseTheStockBasicDetail(data: data)
             dispatch.leave()
         }
-        
+    }
+    
+    class func loadTheStockBasicInfo_profit_loss(isProfitList:Bool, dispatch:DispatchGroup){
+        let service = Service()
+        service.getshareBasicDetail_profit_loss(isProfitList: isProfitList) { (data) in
+            DataHandler.parseTheStockBasicDetail(data: data)
+            dispatch.leave()
+        }
     }
     
     class func loadTheShareDataNormal(dispatch:DispatchGroup,shareName:String){

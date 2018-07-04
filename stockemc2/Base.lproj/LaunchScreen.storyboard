@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,16 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landingpage.png" translatesAutoresizingMaskIntoConstraints="NO" id="tII-KP-6PU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_loading mage.png" translatesAutoresizingMaskIntoConstraints="NO" id="OzR-KA-Qvx">
+                                <rect key="frame" x="137" y="283.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="c6O-Bp-7cI"/>
+                                    <constraint firstAttribute="height" constant="100" id="k1b-pc-Yjn"/>
+                                </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.76862745099999996" green="0.15686274510000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tII-KP-6PU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Kpm-du-caa"/>
-                            <constraint firstItem="tII-KP-6PU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dxP-VD-VSJ"/>
-                            <constraint firstItem="tII-KP-6PU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ncI-XR-B0b"/>
-                            <constraint firstItem="tII-KP-6PU" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="zuc-Z0-KDM"/>
+                            <constraint firstItem="OzR-KA-Qvx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ck9-x9-PLb"/>
+                            <constraint firstItem="OzR-KA-Qvx" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="b8p-ah-AxP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="landingpage.png" width="768" height="1024"/>
+        <image name="icon_loading mage.png" width="512" height="512"/>
     </resources>
 </document>

@@ -60,5 +60,11 @@ class Service{
             completion(data)
         }
     }
+    
+    func getshareBasicDetail_profit_loss(isProfitList:Bool,completion:@escaping (_ Data:Data) -> Void){
+        Network.init().getData( baseURL + "/getStockDetialProfit_loss.php?profit=\(isProfitList)") { (data) in
+            completion(data)
+        }
+    }
 
 }
