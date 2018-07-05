@@ -228,8 +228,8 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
         
         let share = DataHandler.getTheSelectedStockInfoForView1()
         margetPrice.text = "$" + String(describing:share.currentPrice!)
-        basePrice.text   = "$" + String(describing:share.actualPrice!)
-        targetPrice.text   = "$" + String(describing:share.targetPrice!)
+        //basePrice.text   = "$" + String(describing:share.actualPrice!)
+        //targetPrice.text   = "$" + String(describing:share.targetPrice!)
         volumeTrade.text = DataHandler.getTrdeVolmeForDay()
         lastUpdatedDate.text = share.lastUpdatedDate
         
@@ -238,11 +238,22 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
         if let currentPrice = share.live?.price, let openPrice = share.live?.open!{
             
             let myString = (openPrice-currentPrice >= 0 ? "-" :"") + "$" + String(describing: abs(openPrice - currentPrice)) + " Today"
-            let myAttribute = [ NSAttributedStringKey.foregroundColor: (openPrice-currentPrice >= 0 ? Utility.red :Utility.green) ]
+            var myAttribute = [ NSAttributedStringKey.foregroundColor: (openPrice-currentPrice >= 0 ? Utility.red :Utility.green) ]
             let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
             
             // set attributed text on a UILabel
             priceChangeToday.attributedText = myAttrString
+            
+            myAttribute = [ NSAttributedStringKey.foregroundColor: (share.actualPrice! > currentPrice ? Utility.red :Utility.green) ]
+            
+            let basePriceAtt = NSAttributedString(string: "$" + String(describing:share.actualPrice!), attributes: myAttribute)
+            basePrice.attributedText = basePriceAtt
+            
+            let targetPriceAtt = NSAttributedString(string: "$" + String(describing:share.targetPrice!), attributes: myAttribute)
+            targetPrice.attributedText = targetPriceAtt
+            
+            let dividerAtt = NSAttributedString(string: "--->", attributes: myAttribute)
+            dividerBetween .attributedText = dividerAtt
         }
         
         if let date = share.dividendsDate, (Float(share.dividendsPrice!) != 0.0) {

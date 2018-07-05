@@ -453,7 +453,7 @@
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="32"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~~~&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW0-Xe-a6p">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="---&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW0-Xe-a6p">
                                         <rect key="frame" x="116.66666666666666" y="101.33333333333334" width="99.333333333333343" height="39"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="24"/>
                                         <color key="textColor" red="0.1058823529" green="0.69803921570000005" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
