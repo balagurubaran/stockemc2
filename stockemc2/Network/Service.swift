@@ -21,6 +21,13 @@ class Service{
         return watchList_temp;
     }
     
+    func getTheStats(completion:@escaping (_ Data:Data) -> Void){
+        Network.init().getData( baseURL + "/stockemc2_service/getTheStats.php") { (data) in
+            completion(data)
+        }
+    }
+    
+
     func getTheFinancialData(url:String,completion:@escaping (_ Data:Data) -> Void){
         Network.init().getData(url) { (data) in
             completion(data)

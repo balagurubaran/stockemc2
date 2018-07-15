@@ -10,6 +10,14 @@ import Foundation
 
 class NetworkHandler{
     
+    class func loadTheStats( dispatch:DispatchGroup){
+        let service = Service()
+        service.getTheStats { (data) in
+            DataHandler.parseTheApplicationStats(data: data)
+            dispatch.leave()
+        }
+    }
+    
     class func loadTheStockBasicInfo( dispatch:DispatchGroup){
         let service = Service()
         service.getshareBasicDetail { (data) in

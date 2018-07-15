@@ -59,7 +59,7 @@ func isNewHelpIsViewd(){
 }
 
 func print(_ item: @autoclosure () -> Any, separator: String = " ", terminator: String = "\n") {
-//    #if DEBUG
-//        Swift.print(item(), separator:separator, terminator: terminator)
-//    #endif
+    #if DEBUG
+        Swift.print(item(), separator:separator, terminator: terminator)
+    #endif
 }

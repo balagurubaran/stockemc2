@@ -17,6 +17,8 @@ var financialData:[Financial] = [Financial]()
 var price30Days:[priceHistory30Day] = [priceHistory30Day]()
 var tradeVolumes:[TradeVolme] = [TradeVolme]()
 
+var appStatsModel = AppStatsModel()
+
 var EPSData:[EPS] = [EPS]()
 
 var founderInvestment:Float = 0
@@ -52,6 +54,20 @@ class DataHandler{
         }
     }
     
+    class func parseTheApplicationStats(data:Data){
+        appStatsModel = AppStatsModel.init()
+        do{
+            let decoder = JSONDecoder()
+            appStatsModel = try decoder.decode(AppStatsModel.self, from: data)
+            
+        }catch let error{
+            
+            let backToString = String(data: data, encoding: String.Encoding.utf8) as String?
+            print(backToString)
+            print("appStatsModel Error", error.localizedDescription)
+        }
+    }
+    
     class func getTheMainStockDetail()->[shareBasicInfo] {
         if(SearchBar.isSearchBarLifeTime){
             var filterted = isWatchList ?  DataHandler().frameWatchList() : mainMenuStockDetail
@@ -84,6 +100,9 @@ class DataHandler{
         return StockDetail
     }
     
+    class func getTheStats()->AppStatsModel{
+        return appStatsModel
+    }
     class func getTheMainMenuStocksCount()->Int{
         return self.getTheMainStockDetail().count
     }

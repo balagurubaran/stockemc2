@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14225C4720F6EAEE00AD1369 /* AppStatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14225C4620F6EAEE00AD1369 /* AppStatsModel.swift */; };
 		14248AA72085FC9500DA67C6 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14248AA62085FC9500DA67C6 /* NotificationCenter.framework */; };
 		14248AAA2085FC9600DA67C6 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14248AA92085FC9600DA67C6 /* TodayViewController.swift */; };
 		14248AAD2085FC9600DA67C6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14248AAB2085FC9600DA67C6 /* MainInterface.storyboard */; };
@@ -114,6 +115,7 @@
 
 /* Begin PBXFileReference section */
 		0CB296554BEAC25B1CF82D9B /* Pods_Watchlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watchlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14225C4620F6EAEE00AD1369 /* AppStatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStatsModel.swift; sourceTree = "<group>"; };
 		14248AA52085FC9500DA67C6 /* Watchlist.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Watchlist.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		14248AA62085FC9500DA67C6 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		14248AA92085FC9600DA67C6 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				14A224E12083BCA200B2658F /* DataHandler.swift */,
 				14A224E22083BCA200B2658F /* NetWorkHandler.swift */,
 				14A224E32083BCA200B2658F /* sharemodel.swift */,
+				14225C4620F6EAEE00AD1369 /* AppStatsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				14F7742520DEF53800F2563E /* main.swift in Sources */,
 				14A225042083BCA200B2658F /* Utility.swift in Sources */,
 				14A225192083BCA200B2658F /* UIImageView+Letters.swift in Sources */,
+				14225C4720F6EAEE00AD1369 /* AppStatsModel.swift in Sources */,
 				14A225112083BCA200B2658F /* DateValueFormatter.swift in Sources */,
 				14A225122083BCA200B2658F /* DayAxisValueFormatter.swift in Sources */,
 				148A6E18208EA32E004F29C5 /* DisclaimerViewController.swift in Sources */,

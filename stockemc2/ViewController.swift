@@ -75,6 +75,7 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
                                                object: nil)
         tabBar.delegate = self
         tabBar.selectedItem = tabBar.items?[0]
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -101,6 +102,9 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
         NetworkHandler.loadTheStockBasicInfo(dispatch: dispatchGroup)
         
         dispatchGroup.enter()
+        NetworkHandler.loadTheStats(dispatch: dispatchGroup)
+        
+        dispatchGroup.enter()
         HandleSubscription.shared.loadReceipt(completion: { (status) in
             isValidPurchase = status
             dispatchGroup.leave()
@@ -113,6 +117,10 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
                 self.updateTheSelectedStockAsMenuIcon(index:0);
                 DataHandler.setSelectedIndex(index: 0)
             }
+            let stats = DataHandler.getTheStats()
+            self.tabBar.items?[2].badgeValue = stats.dividend_count
+            self.tabBar.items?[3].badgeValue = stats.profit_count
+            self.tabBar.items?[4].badgeValue = stats.loss_count
             
         }
         self.dropShadow()
@@ -177,6 +185,10 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
             self.updateTheView1()
             self.updateTheView2()
             self.loadTheGraph()
+            
+            if(self.tabBar.items?[0].badgeValue == "0"){
+                self.tabBar.items?[0].badgeValue = "\(DataHandler.getTheMainMenuStocksCount())"
+            }
             
             if(self.contentHeight == 0){
                 for view in self.mainView.subviews {
@@ -326,6 +338,9 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
     }
     
     func loadTheGraph() {
+         if(!isValidPurchase){
+            return
+        }
         
         if(FinanciadetailVIew == nil){
             FinanciadetailVIew = FinancialDataView.init()

@@ -565,7 +565,7 @@
                                     <constraint firstAttribute="height" constant="50" id="oZE-Cg-SLl"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="Main" image="all" id="TFq-aZ-o0g">
+                                    <tabBarItem title="Main" image="all" badgeValue="0" id="TFq-aZ-o0g">
                                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="1"/>
                                     </tabBarItem>
                                     <tabBarItem title="Watchlist" image="fav" id="KxY-j3-C7u">
@@ -608,6 +608,9 @@
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                                 <color key="textColor" red="0.76705346200980395" green="0.15686274509803921" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="24"/>
+                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gcv-f5-FGc">
                                 <rect key="frame" x="366" y="24" width="40" height="40"/>
