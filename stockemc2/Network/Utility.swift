@@ -34,7 +34,7 @@ class Utility{
         warning.configureContent(title: "Info", body:message, iconText: iconText)
         warning.button?.isHidden = true
         var infoConfig = SwiftMessages.defaultConfig
-        infoConfig.presentationContext = .window(windowLevel: UIWindowLevelStatusBar)
+        infoConfig.presentationContext = .window(windowLevel: UIWindow.Level(rawValue: UIWindow.Level.statusBar.rawValue))
         DispatchQueue.main.async(execute: {
             //self.shareBasicView.setContentOffset(CGPoint(x: 0, y:0), animated: true)
             SwiftMessages.show(config: infoConfig, view: warning)
@@ -115,7 +115,7 @@ class Utility{
     
     class func logEvent(title:String){
         Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-        AnalyticsParameterItemID: "id-\(title)",
+        AnalyticsParameterItemID: "\(title)",
         AnalyticsParameterItemName: title,
         AnalyticsParameterContentType: "cont"
         ])

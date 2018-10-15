@@ -43,7 +43,7 @@ class SearchBar: UIView,UISearchBarDelegate {
         let size = CGSize.init(width: windowSize.width * 0.95, height: view.frame.size.height)
         view.frame = CGRect.init(origin: CGPoint.init(x: (windowSize.width - size.width)/2, y: -windowSize.height * 0.3), size: size)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     static func showSearchBar(){
@@ -118,7 +118,7 @@ public extension UIView
     static func loadFromXib<T>(fileName:String, withOwner: Any? = nil, options: [AnyHashable : Any]? = nil) -> T where T: UIView
     {
         let bundle = Bundle.main
-        let nib = bundle.loadNibNamed(fileName, owner: withOwner, options: options)//UINib(nibName: fileName, bundle: bundle)
+        let nib = bundle.loadNibNamed(fileName, owner: withOwner, options: options as? [UINib.OptionsKey : Any])//UINib(nibName: fileName, bundle: bundle)
         
         guard let view = nib?.first as? T else {
             fatalError("Could not load view from nib file.")

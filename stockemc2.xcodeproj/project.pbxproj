@@ -60,6 +60,9 @@
 		14A225192083BCA200B2658F /* UIImageView+Letters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A224F62083BCA200B2658F /* UIImageView+Letters.swift */; };
 		14A2251A2083BCA200B2658F /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A224F72083BCA200B2658F /* UIView+Animation.swift */; };
 		14B4FAFE20E46270003CC038 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B4FAFD20E4626F003CC038 /* Assets.xcassets */; };
+		14C7E1AF2172CE67006B883F /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7E1AE2172CE67006B883F /* SubscriptionViewController.swift */; };
+		14C7E1B12172DC79006B883F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14C7E1B02172DC79006B883F /* StoreKit.framework */; };
+		14C7E1B32172E330006B883F /* UIWindow+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7E1B22172E330006B883F /* UIWindow+helper.swift */; };
 		14D288CC208ACA7C00BAE348 /* newStock.png in Resources */ = {isa = PBXBuildFile; fileRef = 14D288CB208ACA7C00BAE348 /* newStock.png */; };
 		14D288CF208C16DA00BAE348 /* watchicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14D288CE208C16D900BAE348 /* watchicon.png */; };
 		14D288D0208C16DA00BAE348 /* watchicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14D288CE208C16D900BAE348 /* watchicon.png */; };
@@ -168,6 +171,9 @@
 		14A224F72083BCA200B2658F /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		14A2251B2083BDD800B2658F /* StockEMC2-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "StockEMC2-Bridging-Header.h"; path = "../../StockEMC2_new design/StockEMC2/StockEMC2/StockEMC2-Bridging-Header.h"; sourceTree = "<group>"; };
 		14B4FAFD20E4626F003CC038 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		14C7E1AE2172CE67006B883F /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		14C7E1B02172DC79006B883F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		14C7E1B22172E330006B883F /* UIWindow+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+helper.swift"; sourceTree = "<group>"; };
 		14D288CB208ACA7C00BAE348 /* newStock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newStock.png; sourceTree = "<group>"; };
 		14D288CE208C16D900BAE348 /* watchicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watchicon.png; sourceTree = "<group>"; };
 		14F773F820DEA4F400F2563E /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52C6880605A5731827E9AAF7 /* Pods_stockemc2.framework in Frameworks */,
+				14C7E1B12172DC79006B883F /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +270,7 @@
 		14A224BD2083B1E300B2658F /* stockemc2 */ = {
 			isa = PBXGroup;
 			children = (
+				14C7E1AD2172CE30006B883F /* Subscription */,
 				14F773F720DEA4F400F2563E /* Lato */,
 				14248AC42086BDCD00DA67C6 /* GoogleService-Info.plist */,
 				14248AC32086148300DA67C6 /* stockemc2.entitlements */,
@@ -342,6 +350,7 @@
 				14A224F52083BCA200B2658F /* Subscription.swift */,
 				14A224F62083BCA200B2658F /* UIImageView+Letters.swift */,
 				14A224F72083BCA200B2658F /* UIView+Animation.swift */,
+				14C7E1B22172E330006B883F /* UIWindow+helper.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -355,6 +364,14 @@
 				14A224F12083BCA200B2658F /* LargeValueFormatter.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		14C7E1AD2172CE30006B883F /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				14C7E1AE2172CE67006B883F /* SubscriptionViewController.swift */,
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 		14F773F720DEA4F400F2563E /* Lato */ = {
@@ -398,6 +415,7 @@
 		AA1B2FABE0D9924A8974E523 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				14C7E1B02172DC79006B883F /* StoreKit.framework */,
 				51BD4C9E86867AF385587C97 /* Pods_stockemc2.framework */,
 				14248AA62085FC9500DA67C6 /* NotificationCenter.framework */,
 				0CB296554BEAC25B1CF82D9B /* Pods_Watchlist.framework */,
@@ -459,6 +477,7 @@
 				TargetAttributes = {
 					14248AA42085FC9500DA67C6 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -468,9 +487,13 @@
 					};
 					14A224BA2083B1E300B2658F = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 						};
@@ -657,6 +680,7 @@
 				148A6E18208EA32E004F29C5 /* DisclaimerViewController.swift in Sources */,
 				14A2250D2083BCA200B2658F /* CustomMainLogoCell.swift in Sources */,
 				14A225072083BCA200B2658F /* NetWorkHandler.swift in Sources */,
+				14C7E1B32172E330006B883F /* UIWindow+helper.swift in Sources */,
 				14A225012083BCA200B2658F /* Network.swift in Sources */,
 				14A225102083BCA200B2658F /* FinancialDataView.swift in Sources */,
 				14A224C12083B1E300B2658F /* ViewController.swift in Sources */,
@@ -666,6 +690,7 @@
 				14A225062083BCA200B2658F /* DataHandler.swift in Sources */,
 				14A2251A2083BCA200B2658F /* UIView+Animation.swift in Sources */,
 				14A224BF2083B1E300B2658F /* AppDelegate.swift in Sources */,
+				14C7E1AF2172CE67006B883F /* SubscriptionViewController.swift in Sources */,
 				14A225002083BCA200B2658F /* FileReader.swift in Sources */,
 				14A224FF2083BCA200B2658F /* Constant.swift in Sources */,
 				14A225022083BCA200B2658F /* Service.swift in Sources */,
@@ -719,13 +744,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = USLGQG74CE;
 				INFOPLIST_FILE = Watchlist/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -DCOCOAPODS -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iappscrazy.stockemc2.Watchlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -738,13 +763,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = USLGQG74CE;
 				INFOPLIST_FILE = Watchlist/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) -DCOCOAPODS -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iappscrazy.stockemc2.Watchlist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -870,12 +895,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = USLGQG74CE;
 				INFOPLIST_FILE = stockemc2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iappscrazy.stockemc2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -890,11 +915,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = USLGQG74CE;
 				INFOPLIST_FILE = stockemc2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iappscrazy.stockemc2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

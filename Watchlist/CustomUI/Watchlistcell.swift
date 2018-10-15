@@ -20,7 +20,7 @@ class Watchlistcell:UITableViewCell{
         let value = "$" + makeTwoPreci(value:widget.ShareActualPrice!) + " -> $" + makeTwoPreci(value:widget.shareTargetPrice!)
         actualtotarget.text = value;
         ShareID.setImage(string: widget.StockID!, color: UIColor.colorHash(name: widget.StockID!), circular:true)
-        currentPrice.setTitle("$ " + makeTwoPreci(value:widget.sharePrice!), for: UIControlState.normal)
+        currentPrice.setTitle("$ " + makeTwoPreci(value:widget.sharePrice!), for: UIControl.State.normal)
     }
     
     func makeTwoPreci(value:Float)->String{

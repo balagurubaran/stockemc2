@@ -28,7 +28,7 @@ class BarView {
        
         let minYearSale = revenue_earnigData.max(by: { (a, b) -> Bool in
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-dd-mm" //Your New Date format as per requirement change it own
+            dateFormatter.dateFormat = appDateFormat //Your New Date format as per requirement change it own
         
              guard  let aYear = Int((dateFormatter.date(from: a.year)?.getYear())!) else {
                 return false
@@ -127,7 +127,7 @@ class BarView {
     
     private func getDate(date:String)->Date{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-dd-mm" //Your New Date format as per requirement change it own
+        dateFormatter.dateFormat = appDateFormat //Your New Date format as per requirement change it own
         let date = dateFormatter.date(from: date)
         return date!
     }

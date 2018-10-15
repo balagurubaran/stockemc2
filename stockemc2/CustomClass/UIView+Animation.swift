@@ -29,7 +29,7 @@ extension UIView {
     }
     
     func flip(view:UIView) {
-        let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+        let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         
         UIView.transition(with: self, duration: 0.6, options: transitionOptions, animations: {
             self.isHidden = false

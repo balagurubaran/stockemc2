@@ -34,7 +34,7 @@ extension UIImageView {
     open func setImage(string: String?,
                        color: UIColor? = nil,
                        circular: Bool = false,
-                       textAttributes: [NSAttributedStringKey: Any]? = nil,
+                       textAttributes: [NSAttributedString.Key: Any]? = nil,
                        fontSize:Float=15.0) {
         
         let image = imageSnap(text: string != nil ? string : "",
@@ -52,7 +52,7 @@ extension UIImageView {
     private func imageSnap(text: String?,
                            color: UIColor,
                            circular: Bool,
-                           textAttributes: [NSAttributedStringKey: Any]?,
+                           textAttributes: [NSAttributedString.Key: Any]?,
                            fontSize:Float) -> UIImage? {
         
         let scale = Float(UIScreen.main.scale)
@@ -76,8 +76,8 @@ extension UIImageView {
 
         // Text
         if let text = text {
-            let attributes = textAttributes ?? [NSAttributedStringKey.foregroundColor: UIColor.white,
-                                                NSAttributedStringKey.font: UIFont.systemFont(ofSize: CGFloat(fontSize))]
+            let attributes = textAttributes ?? [NSAttributedString.Key.foregroundColor: UIColor.white,
+                                                NSAttributedString.Key.font: UIFont.systemFont(ofSize: CGFloat(fontSize))]
 
             let textSize = text.size(withAttributes: attributes)
             let bounds = self.bounds
@@ -162,6 +162,14 @@ extension String {
         }
 
         return finalString.uppercased()
+    }
+    
+    public mutating func formatDateString()->String{
+        let array = self.split(separator: "-")
+        let month = array[1]
+        let day = array[2]
+        let year = array[0]
+        return "\(month)-\(day)-\(year)"
     }
 }
 

@@ -20,7 +20,7 @@ class HandleSubscription:NSObject,SKProductsRequestDelegate,SKPaymentTransaction
     }
     
     func createProductID(){
-        let productID = "iappscrazyemc2"
+        let productID = "stockemc"
         let productIDs = Set([productID])
         
         // let option = Subscription.init(product: SKProduct)
@@ -28,11 +28,7 @@ class HandleSubscription:NSObject,SKProductsRequestDelegate,SKPaymentTransaction
         request.delegate = self
         request.start()
     }
-    //    func purchase(subscription: Subscription) {
-    //        let payment = SKPayment(product: subscription.product)
-    //        SKPaymentQueue.default().add(payment)
-    //    }
-    
+
     func purchase() {
         guard let subscription = options?[0] else {
             print("failed")
@@ -40,10 +36,15 @@ class HandleSubscription:NSObject,SKProductsRequestDelegate,SKPaymentTransaction
         }
         let payment = SKPayment(product: subscription.product)
         SKPaymentQueue.default().add(payment)
-        SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
     func restorePurchases() {
+        guard let subscription = options?[0] else {
+            print("failed")
+            return
+        }
+        let payment = SKPayment(product: subscription.product)
+        SKPaymentQueue.default().add(payment)
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
     
@@ -64,7 +65,7 @@ extension HandleSubscription {
     
     func paymentQueue(_ queue: SKPaymentQueue,
                       updatedTransactions transactions: [SKPaymentTransaction]) {
-        
+        UIWindow.dismissView()
         for transaction in transactions {
             switch transaction.transactionState {
             case .purchasing:
@@ -79,6 +80,10 @@ extension HandleSubscription {
                 handleDeferredState(for: transaction, in: queue)
             }
         }
+    }
+    
+    public func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
+        return true
     }
     
     public func paymentQueue(_ queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError error: Error) {
@@ -115,10 +120,12 @@ extension HandleSubscription {
     }
     
     func handleFailedState(for transaction: SKPaymentTransaction, in queue: SKPaymentQueue) {
+        Utility.showMessage(message: "Purchase failed")
         print("Purchase failed for product id: \(transaction.payment.productIdentifier)")
     }
     
     func handleDeferredState(for transaction: SKPaymentTransaction, in queue: SKPaymentQueue) {
+        Utility.showMessage(message: "Purchase failed")
         print("Purchase deferred for product id: \(transaction.payment.productIdentifier)")
     }
     

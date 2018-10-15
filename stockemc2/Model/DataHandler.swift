@@ -136,7 +136,7 @@ class DataHandler{
         
         do{
             
-            let eachShare = try JSON(data: data)[0]
+            var eachShare = try JSON(data: data)[0]
         
            //let localDay = eachShare["day"].dictionaryValue
             let localLive = eachShare["live"].dictionaryValue
@@ -159,20 +159,20 @@ class DataHandler{
             
             shareDetail.weekslow_52 = eachShare["weeklow_52"].floatValue
             shareDetail.isTargetReached = eachShare["isTargetReached"].boolValue
-            shareDetail.lastUpdatedDate =  shareDetail.live?.lastUpdatedDate
+            shareDetail.lastUpdatedDate =  shareDetail.live?.lastUpdatedDate?.formatDateString()
             
             shareDetail.watchListCount =  eachShare["watchlistCount"].intValue
             
             
             shareDetail.comments = eachShare["comments"].stringValue
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = appDateFormat
             
             if let sector =  eachShare["sector"].string{
                 shareDetail.shareSector = sector
             }
             
-            shareDetail.addedstockDate = dateFormatter.date(from:eachShare["addedstockDate"].stringValue)
+            shareDetail.addedstockDate = dateFormatter.date(from:(eachShare["addedstockDate"].stringValue).formatDateString())
             
             if(shareDetail.weekslow_52 > 0.0){
                 shareDetail.weeklowpercentage_52 = (currentPrice/shareDetail.weekslow_52) * 100
@@ -182,7 +182,7 @@ class DataHandler{
             
             if ((eachShare["lastDivamount"].floatValue) > 0){
                 shareDetail.dividendsPrice = eachShare["lastDivamount"].floatValue
-                shareDetail.dividendsDate = eachShare["lastdivdate"].string
+                shareDetail.dividendsDate = (eachShare["lastdivdate"].string)?.formatDateString()
                 
                 
                 let date = dateFormatter.date(from: shareDetail.dividendsDate!)?.addMonth(n: 3)
@@ -216,8 +216,9 @@ class DataHandler{
         history.high = value["high"]?.floatValue
         history.price = value["price"]?.floatValue
         history.open = value["open"]?.floatValue
-        history.lastUpdatedDate = value["lastPriceUpdated"]?.string
-        print(history.open!);
+        var dateValue = value["lastPriceUpdated"]?.string
+        history.lastUpdatedDate = dateValue?.formatDateString()
+       // print(history.open!);
         //history.precentage =  ((currentPrice-history.open!) / history.open!) * 100.0
         return history
     }
@@ -274,7 +275,8 @@ class DataHandler{
                     if(epsValue.year.count > 0){
                         epsValue.actual =  data.1["actualEPS"].doubleValue
                         epsValue.Q  = String(epsValue.year.dropLast(epsValue.year.count - 2))
-                        epsValue.fiscalEndDate =  data.1["fiscalEndDate"].stringValue
+                        var dateValue = data.1["fiscalEndDate"].stringValue
+                        epsValue.fiscalEndDate =  dateValue.formatDateString()
                         epsValue.index =  index
                         epsValue.estimated =  data.1["estimatedEPS"].doubleValue
                         if(self.checkTheEPSQValide(value: epsValue)){
@@ -297,7 +299,7 @@ class DataHandler{
         let split = value.year.split(separator: " ")
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-dd-mm" //Your New Date format as per requirement change it own
+        dateFormatter.dateFormat = appDateFormat //Your New Date format as per requirement change it own
         let newDate = dateFormatter.date(from: value.fiscalEndDate)
         
         //let date = newDate?.getdate()
@@ -330,7 +332,8 @@ class DataHandler{
                 case Income.Revenues.rawValue?:
                     for (value,key) in eachFinacialData {
                         if (value != "id") {
-                            let eachYear = revenue_earning(amount:key.stringValue , year: value)
+                            var localValue = value
+                            let eachYear = revenue_earning(amount:key.stringValue , year: localValue.formatDateString())
                             if(self.removeTheSameYearfromdata(data: eachYear)){
                                 revenue.append(eachYear)
                             }
@@ -342,7 +345,8 @@ class DataHandler{
                 case Income.Earnings.rawValue?:
                     for (value,key) in eachFinacialData {
                         if (value != "id") {
-                            let eachYear = revenue_earning(amount:key.stringValue , year: value)
+                            var localValue = value
+                            let eachYear = revenue_earning(amount:key.stringValue , year: localValue.formatDateString())
                             if(self.removeTheSameYearfromdata(data: eachYear)){
                                 earning.append(eachYear)
                             }
@@ -351,7 +355,7 @@ class DataHandler{
                     }
                     
                 default:
-                    print("default")
+                    break
                 }
             }
         }catch let error{
@@ -384,11 +388,11 @@ class DataHandler{
     
     class func removeTheSameYearfromdata(data:revenue_earning)->Bool{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-dd-mm" //Your New Date format as per requirement change it own
+        dateFormatter.dateFormat = appDateFormat //Your New Date format as per requirement change it own
         let newDate = dateFormatter.date(from: data.year)
         
         //let date = newDate?.getdate()
-        let month = Int((newDate?.getMonth())!)!
+        //let month = Int((newDate?.getMonth())!)!
         //let year  = Character((newDate?.getYear())!)
         
         return true//month > 10 ? true:false

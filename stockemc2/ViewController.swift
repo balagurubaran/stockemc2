@@ -155,7 +155,9 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
     func updateTheSelectedStockAsMenuIcon(index:Int){
         
         let shareName = DataHandler.getIndexDataFromTheMenuStock(index: index)
-        companyName.text = shareName.companyName
+        if let company  = shareName.companyName {
+            companyName.text = company.count > 30 ? String(company.characters.prefix(30)) : company
+        }
         companyShortName_header.setImage(string: shareName.shareName?.uppercased(), color: UIColor.colorHash(name:shareName.shareName!), circular: true, textAttributes: nil,fontSize: 12.0)
 
         
@@ -248,15 +250,15 @@ class ViewController: UIViewController,UIGestureRecognizerDelegate,UITabBarDeleg
         
         
         if let currentPrice = share.live?.price, let openPrice = share.live?.open!{
-            
-            let myString = (openPrice-currentPrice >= 0 ? "-" :"") + "$" + String(describing: abs(openPrice - currentPrice)) + " Today"
-            var myAttribute = [ NSAttributedStringKey.foregroundColor: (openPrice-currentPrice >= 0 ? Utility.red :Utility.green) ]
+            let value = String(format: "%.2f", abs(openPrice - currentPrice))
+            let myString = (openPrice-currentPrice >= 0 ? "-" :"") + "$" + value + " Today"
+            var myAttribute = [ NSAttributedString.Key.foregroundColor: (openPrice-currentPrice >= 0 ? Utility.red :Utility.green) ]
             let myAttrString = NSAttributedString(string: myString, attributes: myAttribute)
             
             // set attributed text on a UILabel
             priceChangeToday.attributedText = myAttrString
             
-            myAttribute = [ NSAttributedStringKey.foregroundColor: (share.actualPrice! > currentPrice ? Utility.red :Utility.green) ]
+            myAttribute = [ NSAttributedString.Key.foregroundColor: (share.actualPrice! > currentPrice ? Utility.red :Utility.green) ]
             
             let basePriceAtt = NSAttributedString(string: "$" + String(describing:share.actualPrice!), attributes: myAttribute)
             basePrice.attributedText = basePriceAtt
@@ -542,7 +544,7 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate,SearchBarDele
             DispatchQueue.main.async(execute: {
                 self.stockLogoTableView.reloadData()
                 let indexPath = IndexPath(row: 0, section: 0)
-                self.stockLogoTableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableViewScrollPosition.middle)
+                self.stockLogoTableView.selectRow(at: indexPath, animated: true, scrollPosition: UITableView.ScrollPosition.middle)
                 self.removeFadeOut()
             })
         }, completion: nil)

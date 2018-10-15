@@ -26,6 +26,8 @@ var EPSQLabels = ["Q4",
                   "Q1",
 ]
 
+let appDateFormat = "mm-dd-yyyy"
+
 enum Income:String{
     case Revenues = "7109ead1-05ea-4bc5-a398-29bb1691b7e7"
     case Earnings = "6faaa02c-0d6a-464a-b428-451ac7bff962"
