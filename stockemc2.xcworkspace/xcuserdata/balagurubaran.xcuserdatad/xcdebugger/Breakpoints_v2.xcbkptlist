@@ -58,12 +58,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/Network/WidgetService.swift"
-                  timestampString = "561332557.124123"
+                  timestampString = "561425911.964008"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "25"
                   endingLineNumber = "25"
-                  offsetFromSymbolStart = "272">
+                  offsetFromSymbolStart = "244">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +73,12 @@
                   moduleName = "stockemc2"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Development/stockemc2/stockemc2/Network/WidgetService.swift"
-                  timestampString = "561332557.131626"
+                  timestampString = "561425911.968768"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "26"
                   endingLineNumber = "26"
-                  offsetFromSymbolStart = "40">
+                  offsetFromSymbolStart = "34">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -282,7 +282,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "stockemc2/ViewController.swift"
-            timestampString = "561332556.063297"
+            timestampString = "561425890.515883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "610"
